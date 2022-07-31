@@ -34,5 +34,9 @@
   "spicymap:ShopTransform": {
     "TEXT" : ["Experimental"],
     "EXTRA_TEXT" : ["This merchant offers a card transformation service instead of a card removal service.", "Card Transformation Service","Transform a card in your deck. This does not increase the cost of card removals in future shops."]
+  },
+  "spicymap:ShopRelicChest": {
+    "TEXT" : ["Merchant's Stash"],
+    "EXTRA_TEXT" : ["This chest contains a shop relic. Don't tell the merchant."]
   }
 }

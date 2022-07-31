@@ -3,6 +3,7 @@ package SpicyMap;
 import SpicyMap.nodemodifiers.*;
 import SpicyMap.nodemodifiers.bonuses.DexterityModifier;
 import SpicyMap.nodemodifiers.bonuses.HealModifier;
+import SpicyMap.nodemodifiers.bonuses.ShopRelicChestModifier;
 import SpicyMap.nodemodifiers.challenges.GremlinModifier;
 import SpicyMap.nodemodifiers.challenges.StrongEnemiesModifier;
 import SpicyMap.nodemodifiers.rewards.SecondCardRewardModifier;
@@ -55,6 +56,7 @@ public class SpicyMapMod implements PostInitializeSubscriber, OnStartBattleSubsc
         NodeModifierHelper.nodeModifiers.add(new UpgradedRewardsModifier());
         NodeModifierHelper.nodeModifiers.add(new OtherColorModifier(CardLibrary.LibraryType.CURSE));
         NodeModifierHelper.nodeModifiers.add(new ShopTransformModifier());
+        NodeModifierHelper.nodeModifiers.add(new ShopRelicChestModifier());
 
 
     }

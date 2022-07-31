@@ -53,6 +53,8 @@ public abstract class AbstractNodeModifier {
 
     public void onLeaveRoom() {}
 
+    public void onOpenChest() {}
+
     public String[] purgeTooltip() {
         return new String[2];
     }
