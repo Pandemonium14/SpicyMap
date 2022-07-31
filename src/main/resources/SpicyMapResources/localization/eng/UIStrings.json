@@ -1,0 +1,38 @@
+{
+  "spicymap:Heal": {
+    "TEXT" : ["Ideal Rest Site"],
+    "EXTRA_TEXT" : ["Heal #b20% of your Max HP upon entering this room."]
+  },
+  "spicymap:Dexterity": {
+    "TEXT" : ["Defensible Position"],
+    "EXTRA_TEXT" : ["Start this combat with #b2 Dexterity."]
+  },
+  "spicymap:StrongEnemies": {
+    "TEXT" : ["Dark Influence"],
+    "EXTRA_TEXT" : ["Enemies start this combat with #b2 Strength."]
+  },
+  "spicymap:SecondCardReward": {
+    "TEXT" : ["Plentiful"],
+    "EXTRA_TEXT" : ["Rewards include an additional card reward."]
+  },
+  "spicymap:RoughTerrain": {
+    "TEXT" : ["Rough Terrain"],
+    "EXTRA_TEXT" : ["In this room, draw #b1 more card each turn, but discard #b2 cards at the start of your turn."]
+  },
+  "spicymap:Gremlin": {
+    "TEXT" : ["Gremlin Caves"],
+    "EXTRA_TEXT" : ["This room contains an additional small gremlin.", "This room contains #b", " additional small gremlins."]
+  },
+  "spicymap:UpgradedRewards": {
+    "TEXT" : ["High Quality"],
+    "EXTRA_TEXT" : ["Cards rewards from this combat are #yUpgraded."]
+  },
+  "spicymap:OtherColor": {
+    "TEXT" : ["Colorful"],
+    "EXTRA_TEXT" : ["Rewards include an additional "," card reward."]
+  },
+  "spicymap:ShopTransform": {
+    "TEXT" : ["Experimental"],
+    "EXTRA_TEXT" : ["This merchant offers a card transformation service instead of a card removal service.", "Card Transformation Service","Transform a card in your deck. This does not increase the cost of card removals in future shops."]
+  }
+}
