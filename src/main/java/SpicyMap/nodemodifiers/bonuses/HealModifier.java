@@ -11,7 +11,7 @@ import static com.badlogic.gdx.math.MathUtils.floor;
 
 public class HealModifier extends AbstractNodeModifier {
     public static final String ID = SpicyMapMod.makeID("Heal");
-    public static final int HEAL_PERCENTAGE = 20;
+    public static final int HEAL_PERCENTAGE = 15;
 
     public HealModifier() {
         super(ID, NodeModType.BONUS);

@@ -18,12 +18,11 @@ public class OtherColorModifier extends AbstractNodeModifier {
 
     public OtherColorModifier() {
         super(ID, NodeModType.SPECIAL);
-        modColor = randomizeColor();
-    }
-
-    public OtherColorModifier(CardLibrary.LibraryType color) {
-        super(ID, NodeModType.SPECIAL);
-        modColor = color;
+        if (SpicyMapMod.initializing) {
+            modColor = CardLibrary.LibraryType.CURSE;
+        } else {
+            modColor = randomizeColor();
+        }
     }
 
     @Override

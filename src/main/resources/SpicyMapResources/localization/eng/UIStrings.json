@@ -1,7 +1,7 @@
 {
   "spicymap:Heal": {
     "TEXT" : ["Ideal Rest Site"],
-    "EXTRA_TEXT" : ["Heal #b20% of your Max HP upon entering this room."]
+    "EXTRA_TEXT" : ["Heal #b15% of your Max HP upon entering this room."]
   },
   "spicymap:Dexterity": {
     "TEXT" : ["Defensible Position"],
@@ -21,7 +21,8 @@
   },
   "spicymap:Gremlin": {
     "TEXT" : ["Gremlin Caves"],
-    "EXTRA_TEXT" : ["This room contains an additional small gremlin.", "This room contains #b", " additional small gremlins."]
+    "EXTRA_TEXT" : ["This room contains an additional small gremlin.",
+      "This room contains #b", " additional small gremlins."]
   },
   "spicymap:UpgradedRewards": {
     "TEXT" : ["High Quality"],
@@ -33,10 +34,44 @@
   },
   "spicymap:ShopTransform": {
     "TEXT" : ["Experimental"],
-    "EXTRA_TEXT" : ["This merchant offers a card transformation service instead of a card removal service.", "Card Transformation Service","Transform a card in your deck. This does not increase the cost of card removals in future shops."]
+    "EXTRA_TEXT" : ["This merchant offers a card transformation service instead of a card removal service.",
+      "Card Transformation Service",
+      "Transform a card in your deck. This does not increase the cost of card removals in future shops."]
   },
   "spicymap:ShopRelicChest": {
     "TEXT" : ["Merchant's Stash"],
     "EXTRA_TEXT" : ["This chest contains a shop relic. Don't tell the merchant."]
+  },
+  "spicymap:TimeWarp": {
+    "TEXT" : ["Time Distortion"],
+    "EXTRA_TEXT" : ["At the start of combat, a random enemy gains #yTime #yWarp."]
+  },
+  "spicymap:Gold": {
+    "TEXT" : ["Wealthy"],
+    "EXTRA_TEXT" : ["This room contains additional #yGold."]
+  },
+  "spicymap:ElitesRemoval": {
+    "TEXT" : ["Cleanse"],
+    "EXTRA_TEXT" : ["Rewards include a card removal."]
+  },
+  "spicymap:CampfireToke": {
+    "TEXT" : ["Relaxing Fumes"],
+    "EXTRA_TEXT" : ["At this rest site, you can remove a card from your deck instead of upgrading a card."]
+  },
+  "spicymap:Constrict": {
+    "TEXT" : ["Corrupted Growth"],
+    "EXTRA_TEXT" : ["At the start of combat, gain #b4 #yConstricted, dealing damage to you at the end of your turn."]
+  },
+  "spicymap:Artefact": {
+    "TEXT" : ["Ancient Ruins"],
+    "EXTRA_TEXT" : ["At the start of battle, you and all enemies gain #b99 #yArtifact."]
+  },
+  "spicymap:RareRelicChest": {
+    "TEXT" : ["Precious Antique"],
+    "EXTRA_TEXT" : ["This chest contains a #bRare relic."]
+  },
+  "spicymap:MaxHPLossChest": {
+    "TEXT" : ["Draining Seal"],
+    "EXTRA_TEXT" : ["Opening this chest reduces your Max HP by #b7."]
   }
 }

@@ -2,28 +2,34 @@ package SpicyMap;
 
 import SpicyMap.nodemodifiers.*;
 import SpicyMap.nodemodifiers.bonuses.DexterityModifier;
+import SpicyMap.nodemodifiers.bonuses.GoldModifier;
 import SpicyMap.nodemodifiers.bonuses.HealModifier;
 import SpicyMap.nodemodifiers.bonuses.ShopRelicChestModifier;
 import SpicyMap.nodemodifiers.challenges.GremlinModifier;
 import SpicyMap.nodemodifiers.challenges.StrongEnemiesModifier;
+import SpicyMap.nodemodifiers.rewards.ElitesRemovalModifier;
 import SpicyMap.nodemodifiers.rewards.SecondCardRewardModifier;
 import SpicyMap.nodemodifiers.rewards.UpgradedRewardsModifier;
-import SpicyMap.nodemodifiers.special.OtherColorModifier;
-import SpicyMap.nodemodifiers.special.RoughTerrainModifier;
-import SpicyMap.nodemodifiers.special.ShopTransformModifier;
+import SpicyMap.nodemodifiers.special.*;
 import SpicyMap.patches.NodeModifierField;
+import SpicyMap.relic.RemovalRelic;
+import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
-public class SpicyMapMod implements PostInitializeSubscriber, OnStartBattleSubscriber, EditStringsSubscriber {
+public class SpicyMapMod implements PostInitializeSubscriber, OnStartBattleSubscriber, EditStringsSubscriber, EditRelicsSubscriber {
 
-    public static final String modID = "spicymap"; //TODO: Change this.
+    public static final String modID = "spicymap";
+
+    public static boolean initializing = true;
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
@@ -47,18 +53,10 @@ public class SpicyMapMod implements PostInitializeSubscriber, OnStartBattleSubsc
 
     @Override
     public void receivePostInitialize() {
-        NodeModifierHelper.nodeModifiers.add(new DexterityModifier());
-        NodeModifierHelper.nodeModifiers.add(new StrongEnemiesModifier());
-        NodeModifierHelper.nodeModifiers.add(new HealModifier());
-        NodeModifierHelper.nodeModifiers.add(new SecondCardRewardModifier());
-        NodeModifierHelper.nodeModifiers.add(new RoughTerrainModifier());
-        NodeModifierHelper.nodeModifiers.add(new GremlinModifier());
-        NodeModifierHelper.nodeModifiers.add(new UpgradedRewardsModifier());
-        NodeModifierHelper.nodeModifiers.add(new OtherColorModifier(CardLibrary.LibraryType.CURSE));
-        NodeModifierHelper.nodeModifiers.add(new ShopTransformModifier());
-        NodeModifierHelper.nodeModifiers.add(new ShopRelicChestModifier());
-
-
+        new AutoAdd(modID)
+                .packageFilter("SpicyMap.nodemodifiers")
+                .any(AbstractNodeModifier.class, ((info, nodeMod) -> NodeModifierHelper.nodeModifiers.add(nodeMod)));
+        initializing = false;
     }
 
 
@@ -80,5 +78,12 @@ public class SpicyMapMod implements PostInitializeSubscriber, OnStartBattleSubsc
     @Override
     public void receiveEditStrings() {
         BaseMod.loadCustomStringsFile(UIStrings.class, "SpicyMapResources/localization/eng/UIStrings.json" );
+        BaseMod.loadCustomStringsFile(RelicStrings.class, "SpicyMapResources/localization/eng/RelicStrings.json");
+    }
+
+
+    @Override
+    public void receiveEditRelics() {
+        BaseMod.addRelic(new RemovalRelic(), RelicType.SHARED);
     }
 }

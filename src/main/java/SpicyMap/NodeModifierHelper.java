@@ -26,11 +26,12 @@ public class NodeModifierHelper {
             AbstractNodeModifier mod = getModifier(room.getClass(), type);
             if (mod != null) {
                 NodeModifierField.modifiers.get(room).add(mod);
+                mod.onGeneration(room);
                 if (mod.type == AbstractNodeModifier.NodeModType.CHALLENGE) {
-
                     AbstractNodeModifier rewardMod = getModifier(room.getClass(), AbstractNodeModifier.NodeModType.REWARD);
                     if (rewardMod != null) {
                         NodeModifierField.modifiers.get(room).add(rewardMod);
+                        rewardMod.onGeneration(room);
                         BaseMod.logger.log(Level.INFO, "Adding reward to challenge node : " + rewardMod.MODIFIER_ID);
                     }
                 }
@@ -73,7 +74,7 @@ public class NodeModifierHelper {
     }
 
 
-    private static AbstractNodeModifier getModifier(Class<? extends AbstractRoom> roomClass, AbstractNodeModifier.NodeModType type) {
+    public static AbstractNodeModifier getModifier(Class<? extends AbstractRoom> roomClass, AbstractNodeModifier.NodeModType type) {
         ArrayList<AbstractNodeModifier> list = new ArrayList<>();
         for (AbstractNodeModifier mod : nodeModifiers) {
             if (mod.type == type && mod.roomClasses.contains(roomClass)) {

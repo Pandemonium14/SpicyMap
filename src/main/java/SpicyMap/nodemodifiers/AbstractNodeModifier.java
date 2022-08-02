@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
 import java.util.ArrayList;
 
@@ -54,6 +55,10 @@ public abstract class AbstractNodeModifier {
     public void onLeaveRoom() {}
 
     public void onOpenChest() {}
+
+    public void onGeneration(AbstractRoom room) {}
+
+    public void modifyCampfireOptions(ArrayList<AbstractCampfireOption> options) {}
 
     public String[] purgeTooltip() {
         return new String[2];
