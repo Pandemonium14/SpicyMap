@@ -25,7 +25,14 @@ public class OnEnterRoomPatch {
                 for (AbstractNodeModifier mod : NodeModifierField.modifiers.get(room)) {
                     mod.postEnterRoom(room);
                 }
+                if (room.event != null) {
+                    ArrayList<AbstractNodeModifier> mods = NodeModifierField.modifiers.get(room);
+                    for (AbstractNodeModifier mod : mods) {
+                        mod.modifyEvent(room.event);
+                    }
+                }
             }
+
         }
     }
 }

@@ -19,9 +19,11 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.EventRoom;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
@@ -79,6 +81,7 @@ public class SpicyMapMod implements PostInitializeSubscriber, OnStartBattleSubsc
     public void receiveEditStrings() {
         BaseMod.loadCustomStringsFile(UIStrings.class, "SpicyMapResources/localization/eng/UIStrings.json" );
         BaseMod.loadCustomStringsFile(RelicStrings.class, "SpicyMapResources/localization/eng/RelicStrings.json");
+        BaseMod.loadCustomStringsFile(EventStrings.class, "SpicyMapResources/localization/eng/EventStrings.json");
     }
 
 

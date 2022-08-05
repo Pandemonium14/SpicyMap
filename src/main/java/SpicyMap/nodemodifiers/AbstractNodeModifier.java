@@ -7,6 +7,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.AbstractEvent;
+import com.megacrit.cardcrawl.events.AbstractImageEvent;
+import com.megacrit.cardcrawl.helpers.EventHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rewards.RewardItem;
@@ -68,6 +71,14 @@ public abstract class AbstractNodeModifier {
     //returns whether or not it should stop the purging (false = continue)
     public boolean modifyShopPurge(ArrayList<AbstractCard> selectedCards) {
         return false;
+    }
+
+    public void modifyEvent(AbstractEvent intendedEvent) {
+
+    }
+
+    public EventHelper.RoomResult forceEvent() {
+        return null;
     }
 
     public enum NodeModType {

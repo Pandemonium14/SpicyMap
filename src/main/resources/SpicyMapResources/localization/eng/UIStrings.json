@@ -73,5 +73,17 @@
   "spicymap:MaxHPLossChest": {
     "TEXT" : ["Draining Seal"],
     "EXTRA_TEXT" : ["Opening this chest reduces your Max HP by #b7."]
+  },
+  "spicymap:ShopUpgrade": {
+    "TEXT" : ["Special Promotion: Upgrade"],
+    "EXTRA_TEXT" : ["Buying a card removal from this merchant also #yUpgrades a random card in your deck."]
+  },
+  "spicymap:ChooseOneEvent": {
+    "TEXT" : ["Crossroads"],
+    "EXTRA_TEXT" : ["Choose between two events."]
+  },
+  "spicymap:HideIntents": {
+    "TEXT" : ["Dark Fog"],
+    "EXTRA_TEXT" : ["Enemy intents are hidden."]
   }
 }

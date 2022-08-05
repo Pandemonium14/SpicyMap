@@ -63,9 +63,9 @@ public class NodeModifierHelper {
 
     private static AbstractNodeModifier.NodeModType rollForType(int floor) {
         int r = AbstractDungeon.mapRng.random(99);
-        if (r < 50) {
+        if (r < 40) {
             return AbstractNodeModifier.NodeModType.SPECIAL;
-        } else if (r < 80) {
+        } else if (r < 60) {
             if (floor > 2) return AbstractNodeModifier.NodeModType.CHALLENGE;
             else return null;
         } else {

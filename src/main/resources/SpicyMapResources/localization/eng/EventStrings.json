@@ -1,0 +1,6 @@
+{
+  "spicymap:ChooseOne":
+  {"NAME" : "Crossroads",
+  "DESCRIPTIONS" :  ["Going up the Spire, you come to a fork in the path, and a sign with directions. How convenient."],
+  "OPTIONS" : ["Follow the sign labeled #p", "."]}
+}
