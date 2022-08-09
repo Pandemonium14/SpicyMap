@@ -105,5 +105,13 @@
   "spicymap:ReduceHandSize": {
     "TEXT" : ["Tight Corridor"],
     "EXTRA_TEXT" : ["For this combat, your max hand size is reduced by #b3."]
+  },
+  "spicymap:Sales": {
+    "TEXT" : ["Special Promotion: SALES"],
+    "EXTRA_TEXT" : ["In this shop, everything is #b30% off!"]
+  },
+  "spicymap:CursedChestEvent": {
+    "TEXT" : ["Cursed Treasure"],
+    "EXTRA_TEXT" : ["This room contains a chest that #rcurses you when opened."]
   }
 }

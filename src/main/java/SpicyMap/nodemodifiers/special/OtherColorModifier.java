@@ -49,20 +49,19 @@ public class OtherColorModifier extends AbstractNodeModifier {
         while (cards.size() < rewardSize) {
             int randomIndex = AbstractDungeon.treasureRng.random(pool.size()-1);
             AbstractCard c = pool.get(randomIndex);
-            if (!cards.contains(c) && c.rarity != AbstractCard.CardRarity.SPECIAL) {
+            if (!cards.contains(c) && c.rarity != AbstractCard.CardRarity.SPECIAL && c.type != AbstractCard.CardType.STATUS) {
                 cards.add(c);
             }
         }
         RewardItem reward = null;
         for (RewardItem r : rewards) {
-            if (r.cards != null) {
+            if (r.cards != null && r.type == RewardItem.RewardType.CARD) {
                 reward = r;
                 break;
             }
         }
         if (reward != null) {
             reward.cards = cards;
-            rewards.add(reward);
         }
     }
 

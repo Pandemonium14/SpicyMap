@@ -31,7 +31,7 @@ public class ChooseOneEventModifier extends AbstractNodeModifier {
     }
 
     @Override
-    public EventHelper.RoomResult forceEvent() {
+    public EventHelper.RoomResult forceEventResult() {
         return EventHelper.RoomResult.EVENT;
     }
 

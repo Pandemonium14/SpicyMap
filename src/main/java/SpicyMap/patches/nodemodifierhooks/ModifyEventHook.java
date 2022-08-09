@@ -1,17 +1,14 @@
 package SpicyMap.patches.nodemodifierhooks;
 
 
-import SpicyMap.NodeModifierHelper;
 import SpicyMap.nodemodifiers.AbstractNodeModifier;
 import SpicyMap.patches.NodeModifierField;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.EventHelper;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 
 import java.util.ArrayList;
@@ -26,8 +23,8 @@ public class ModifyEventHook {
         EventHelper.RoomResult forceEvent = null;
 
         for (AbstractNodeModifier mod : mods) {
-            if (mod.forceEvent() != null) {
-                forceEvent = mod.forceEvent();
+            if (mod.forceEventResult() != null) {
+                forceEvent = mod.forceEventResult();
                 break;
             }
         }

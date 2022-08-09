@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractEvent;
-import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.helpers.EventHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -77,7 +76,7 @@ public abstract class AbstractNodeModifier {
 
     }
 
-    public EventHelper.RoomResult forceEvent() {
+    public EventHelper.RoomResult forceEventResult() {
         return null;
     }
 
