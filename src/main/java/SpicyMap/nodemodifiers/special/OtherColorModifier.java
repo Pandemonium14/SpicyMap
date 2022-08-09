@@ -53,9 +53,17 @@ public class OtherColorModifier extends AbstractNodeModifier {
                 cards.add(c);
             }
         }
-        RewardItem reward = new RewardItem();
-        reward.cards = cards;
-        rewards.add(reward);
+        RewardItem reward = null;
+        for (RewardItem r : rewards) {
+            if (r.cards != null) {
+                reward = r;
+                break;
+            }
+        }
+        if (reward != null) {
+            reward.cards = cards;
+            rewards.add(reward);
+        }
     }
 
     @Override

@@ -30,7 +30,7 @@
   },
   "spicymap:OtherColor": {
     "TEXT" : ["Colorful"],
-    "EXTRA_TEXT" : ["Rewards include an additional "," card reward."]
+    "EXTRA_TEXT" : ["This room' card reward contains "," cards."]
   },
   "spicymap:ShopTransform": {
     "TEXT" : ["Experimental"],
@@ -64,7 +64,7 @@
   },
   "spicymap:Artefact": {
     "TEXT" : ["Ancient Ruins"],
-    "EXTRA_TEXT" : ["At the start of battle, you and all enemies gain #b99 #yArtifact."]
+    "EXTRA_TEXT" : ["At the start of battle, you and all enemies gain #b2 #yArtifact."]
   },
   "spicymap:RareRelicChest": {
     "TEXT" : ["Precious Antique"],
@@ -85,5 +85,25 @@
   "spicymap:HideIntents": {
     "TEXT" : ["Dark Fog"],
     "EXTRA_TEXT" : ["Enemy intents are hidden."]
+  },
+  "spicymap:CampfireDig": {
+    "TEXT" : ["Dig Site"],
+    "EXTRA_TEXT" : ["At this rest site, the option to rest is replaced with the option to dig."]
+  },
+  "spicymap:ElitesMultipleCardRewards": {
+    "TEXT" : ["Hoarder"],
+    "EXTRA_TEXT" : ["Rewards include #b3 additional card rewards."]
+  },
+  "spicymap:RareCardReward": {
+    "TEXT" : ["Collector"],
+    "EXTRA_TEXT" : ["Rewards include an additional rare card reward."]
+  },
+  "spicymap:FirstTurnDraw": {
+    "TEXT" : ["Element of Surprise"],
+    "EXTRA_TEXT" : ["At the start of combat, draw #b2 additional cards."]
+  },
+  "spicymap:ReduceHandSize": {
+    "TEXT" : ["Tight Corridor"],
+    "EXTRA_TEXT" : ["For this combat, your max hand size is reduced by #b3."]
   }
 }

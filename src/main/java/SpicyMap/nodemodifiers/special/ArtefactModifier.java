@@ -33,6 +33,6 @@ public class ArtefactModifier extends AbstractNodeModifier {
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             addToBot(new ApplyPowerAction(m, m , new ArtifactPower(m, 99)));
         }
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, 99)));
+        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, 2)));
     }
 }
