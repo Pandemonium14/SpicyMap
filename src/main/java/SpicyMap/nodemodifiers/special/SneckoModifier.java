@@ -6,17 +6,19 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
+import com.megacrit.cardcrawl.powers.DrawPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 
 import java.util.ArrayList;
 
-public class ArtefactModifier extends AbstractNodeModifier {
+public class SneckoModifier extends AbstractNodeModifier {
 
-    public static final String ID = SpicyMapMod.makeID("Artefact");
+    public static final String ID = SpicyMapMod.makeID("Snecko");
 
-    public ArtefactModifier() {
+    public SneckoModifier() {
         super(ID, NodeModType.SPECIAL);
     }
 
@@ -30,9 +32,9 @@ public class ArtefactModifier extends AbstractNodeModifier {
 
     @Override
     public void atBattleStart() {
-        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(m, m , new ArtifactPower(m, 3)));
-        }
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, 2)));
+        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ConfusionPower(AbstractDungeon.player)));
+        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DrawPower(AbstractDungeon.player,1)));
     }
+
+
 }

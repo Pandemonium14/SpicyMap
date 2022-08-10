@@ -113,5 +113,29 @@
   "spicymap:CursedChestEvent": {
     "TEXT" : ["Cursed Treasure"],
     "EXTRA_TEXT" : ["This room contains a chest that #rcurses you when opened."]
+  },
+  "spicymap:Strawberry": {
+    "TEXT" : ["Old Garden"],
+    "EXTRA_TEXT" : ["Rewards include an additional #yStrawberry, increasing your Max HP by #b7."]
+  },
+  "spicymap:Slimed": {
+    "TEXT" : ["Slimy Swamp"],
+    "EXTRA_TEXT" : ["At the start of combat, add #b3 #ySlimed to your draw pile."]
+  },
+  "spicymap:Snecko": {
+    "TEXT" : ["Snecko Temple"],
+    "EXTRA_TEXT" : ["Draw #b1 additional card each turn. Start the combat #yConfused."]
+  },
+  "spicymap:CampfireCardReward": {
+    "TEXT" : ["Forgotten Equipment"],
+    "EXTRA_TEXT" : ["Upon entering, you may add #b1 card to your deck."]
+  },
+  "spicymap:CurrentHealthCost": {
+    "TEXT" : ["Blood Seal"],
+    "EXTRA_TEXT" : ["Opening this chest costs #b20% of your current health."]
+  },
+  "spicymap:ChestRandomUpgrade": {
+    "TEXT" : ["Blacksmith's Cache"],
+    "EXTRA_TEXT" : ["Upon opening this chest, #yUpgrade #b2 cards from your deck."]
   }
 }

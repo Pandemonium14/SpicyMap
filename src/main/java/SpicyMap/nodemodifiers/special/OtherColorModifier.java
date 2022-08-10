@@ -3,6 +3,9 @@ package SpicyMap.nodemodifiers.special;
 import SpicyMap.SpicyMapMod;
 import SpicyMap.nodemodifiers.AbstractNodeModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.characters.CharacterManager;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.rewards.RewardItem;
@@ -10,16 +13,17 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class OtherColorModifier extends AbstractNodeModifier {
     public static final String ID = SpicyMapMod.makeID("OtherColor");
 
-    public final CardLibrary.LibraryType modColor;
+    public final AbstractCard.CardColor modColor;
 
     public OtherColorModifier() {
         super(ID, NodeModType.SPECIAL);
         if (SpicyMapMod.initializing) {
-            modColor = CardLibrary.LibraryType.CURSE;
+            modColor = AbstractCard.CardColor.CURSE;
         } else {
             modColor = randomizeColor();
         }
@@ -32,27 +36,63 @@ public class OtherColorModifier extends AbstractNodeModifier {
         return result;
     }
 
-    public CardLibrary.LibraryType randomizeColor() {
-        CardLibrary.LibraryType color = CardLibrary.LibraryType.CURSE;
-        while (color == CardLibrary.LibraryType.CURSE || CardLibrary.getCardList(color).get(0).color == AbstractDungeon.player.getCardColor()) {
-            int i = AbstractDungeon.mapRng.random(CardLibrary.LibraryType.values().length - 1);
-            color = CardLibrary.LibraryType.values()[i];
+    public AbstractCard.CardColor randomizeColor() {
+        ArrayList<AbstractCard.CardColor> characterColors = new ArrayList<>();
+        for (AbstractPlayer chara : CardCrawlGame.characterManager.getAllCharacters()) {
+            if (chara.chosenClass != AbstractDungeon.player.chosenClass) {
+                characterColors.add(chara.getCardColor());
+            }
         }
-        return color;
+        int r = AbstractDungeon.mapRng.random(characterColors.size() - 1);
+        return characterColors.get(r);
+    }
+
+    private AbstractCard.CardRarity rollRarity() {
+        int roll = AbstractDungeon.cardRng.random(99);
+        if (roll < 20) {
+            return AbstractCard.CardRarity.RARE;
+        } else if (roll < 35) {
+            return AbstractCard.CardRarity.COMMON;
+        } else {
+            return AbstractCard.CardRarity.UNCOMMON;
+        }
+    }
+
+    private ArrayList<AbstractCard> getCardList(AbstractCard.CardColor color) {
+        ArrayList<AbstractCard> cardPool = new ArrayList<>();
+        for (Map.Entry<String,AbstractCard> c : CardLibrary.cards.entrySet()) {
+            if (c.getValue().color == color) {
+                cardPool.add(c.getValue());
+            }
+        }
+        return cardPool;
     }
 
     @Override
     public void modifyRewards(ArrayList<RewardItem> rewards) {
         int rewardSize = 3;
         ArrayList<AbstractCard> cards = new ArrayList<>();
-        ArrayList<AbstractCard> pool = CardLibrary.getCardList(modColor);
+        ArrayList<AbstractCard> pool = getCardList(modColor);
+        AbstractCard.CardRarity rarity = rollRarity();
+
+        //this part is awful and lazy
+        int tries = 1;
         while (cards.size() < rewardSize) {
             int randomIndex = AbstractDungeon.treasureRng.random(pool.size()-1);
             AbstractCard c = pool.get(randomIndex);
-            if (!cards.contains(c) && c.rarity != AbstractCard.CardRarity.SPECIAL && c.type != AbstractCard.CardType.STATUS) {
+            if (!cards.contains(c) && c.rarity == rarity && c.type != AbstractCard.CardType.STATUS) {
                 cards.add(c);
+                rollRarity();
+                tries = 0;
+            }
+            tries += 1;
+            if (tries > 4) {
+                rarity = rollRarity();
+                tries = 1;
             }
         }
+        //end of the awful and lazy part
+
         RewardItem reward = null;
         for (RewardItem r : rewards) {
             if (r.cards != null && r.type == RewardItem.RewardType.CARD) {
