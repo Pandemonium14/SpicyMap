@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>UnimportantInfo</groupId>
 
-    <artifactId>SpicyMap</artifactId>
-    <version>0.0.1</version>
+    <artifactId>SpireLocations</artifactId>
+    <version>0.1.0</version>
     <name>SpireLocations</name>
-    <description>A testing zone, intended to prepare your mod for liftoff.</description>
+    <description>Adds modifiers to nodes, with various effects.</description>
     <!-- Change the above for mod information. -->
 
     <properties>
@@ -14,7 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
         <ModTheSpire.version>3.18.2</ModTheSpire.version>
-        <ModID>spicymap</ModID>
+        <ModID>spirelocations</ModID>
 
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:/Program Files (x86)/Steam/steamapps/</Steam.path>
