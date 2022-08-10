@@ -1,7 +1,0 @@
-{
-  "spicymap:Removal" : {
-    "NAME" : "Cleansing Water Drop",
-    "DESCRIPTIONS" : ["Upon pickup, remove a card from your deck.","Choose a card to remove from your deck."],
-    "FLAVOR" : "A drop of water from a mystical fountain, that is said to remove curses from those who drink from it."
-  }
-}

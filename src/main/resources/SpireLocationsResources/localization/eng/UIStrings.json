@@ -1,0 +1,141 @@
+{
+  "spirelocations:Heal": {
+    "TEXT" : ["Ideal Rest Site"],
+    "EXTRA_TEXT" : ["Heal #b15% of your Max HP upon entering this room."]
+  },
+  "spirelocations:Dexterity": {
+    "TEXT" : ["Defensible Position"],
+    "EXTRA_TEXT" : ["Start this combat with #b2 Dexterity."]
+  },
+  "spirelocations:StrongEnemies": {
+    "TEXT" : ["Dark Influence"],
+    "EXTRA_TEXT" : ["Enemies start this combat with #b2 Strength."]
+  },
+  "spirelocations:SecondCardReward": {
+    "TEXT" : ["Plentiful"],
+    "EXTRA_TEXT" : ["Rewards include an additional card reward."]
+  },
+  "spirelocations:RoughTerrain": {
+    "TEXT" : ["Rough Terrain"],
+    "EXTRA_TEXT" : ["In this room, draw #b1 more card each turn, but discard #b2 cards at the start of your turn."]
+  },
+  "spirelocations:Gremlin": {
+    "TEXT" : ["Gremlin Caves"],
+    "EXTRA_TEXT" : ["This room contains an additional small gremlin.",
+      "This room contains #b", " additional small gremlins."]
+  },
+  "spirelocations:UpgradedRewards": {
+    "TEXT" : ["High Quality"],
+    "EXTRA_TEXT" : ["Cards rewards from this combat are #yUpgraded."]
+  },
+  "spirelocations:OtherColor": {
+    "TEXT" : ["Colorful"],
+    "EXTRA_TEXT" : ["This room' card reward contains "," cards."]
+  },
+  "spirelocations:ShopTransform": {
+    "TEXT" : ["Experimental"],
+    "EXTRA_TEXT" : ["This merchant offers a card transformation service instead of a card removal service.",
+      "Card Transformation Service",
+      "Transform a card in your deck. This does not increase the cost of card removals in future shops."]
+  },
+  "spirelocations:ShopRelicChest": {
+    "TEXT" : ["Merchant's Stash"],
+    "EXTRA_TEXT" : ["This chest contains a shop relic. Don't tell the merchant."]
+  },
+  "spirelocations:TimeWarp": {
+    "TEXT" : ["Time Distortion"],
+    "EXTRA_TEXT" : ["At the start of combat, a random enemy gains #yTime #yWarp."]
+  },
+  "spirelocations:Gold": {
+    "TEXT" : ["Wealthy"],
+    "EXTRA_TEXT" : ["This room contains additional #yGold."]
+  },
+  "spirelocations:ElitesRemoval": {
+    "TEXT" : ["Cleanse"],
+    "EXTRA_TEXT" : ["Rewards include a card removal."]
+  },
+  "spirelocations:CampfireToke": {
+    "TEXT" : ["Relaxing Fumes"],
+    "EXTRA_TEXT" : ["At this rest site, you can remove a card from your deck instead of upgrading a card."]
+  },
+  "spirelocations:Constrict": {
+    "TEXT" : ["Corrupted Growth"],
+    "EXTRA_TEXT" : ["At the start of combat, gain #b4 #yConstricted, dealing damage to you at the end of your turn."]
+  },
+  "spirelocations:Artefact": {
+    "TEXT" : ["Ancient Ruins"],
+    "EXTRA_TEXT" : ["At the start of battle, you and all enemies gain #b2 #yArtifact."]
+  },
+  "spirelocations:RareRelicChest": {
+    "TEXT" : ["Precious Antique"],
+    "EXTRA_TEXT" : ["This chest contains a #bRare relic."]
+  },
+  "spirelocations:MaxHPLossChest": {
+    "TEXT" : ["Draining Seal"],
+    "EXTRA_TEXT" : ["Opening this chest reduces your Max HP by #b7."]
+  },
+  "spirelocations:ShopUpgrade": {
+    "TEXT" : ["Special Promotion: Upgrade"],
+    "EXTRA_TEXT" : ["Buying a card removal from this merchant also #yUpgrades a random card in your deck."]
+  },
+  "spirelocations:ChooseOneEvent": {
+    "TEXT" : ["Crossroads"],
+    "EXTRA_TEXT" : ["Choose between two events."]
+  },
+  "spirelocations:HideIntents": {
+    "TEXT" : ["Dark Fog"],
+    "EXTRA_TEXT" : ["Enemy intents are hidden."]
+  },
+  "spirelocations:CampfireDig": {
+    "TEXT" : ["Dig Site"],
+    "EXTRA_TEXT" : ["At this rest site, the option to rest is replaced with the option to dig."]
+  },
+  "spirelocations:ElitesMultipleCardRewards": {
+    "TEXT" : ["Hoarder"],
+    "EXTRA_TEXT" : ["Rewards include #b3 additional card rewards."]
+  },
+  "spirelocations:RareCardReward": {
+    "TEXT" : ["Collector"],
+    "EXTRA_TEXT" : ["Rewards include an additional rare card reward."]
+  },
+  "spirelocations:FirstTurnDraw": {
+    "TEXT" : ["Element of Surprise"],
+    "EXTRA_TEXT" : ["At the start of combat, draw #b2 additional cards."]
+  },
+  "spirelocations:ReduceHandSize": {
+    "TEXT" : ["Tight Corridor"],
+    "EXTRA_TEXT" : ["For this combat, your max hand size is reduced by #b3."]
+  },
+  "spirelocations:Sales": {
+    "TEXT" : ["Special Promotion: SALES"],
+    "EXTRA_TEXT" : ["In this shop, everything is #b30% off!"]
+  },
+  "spirelocations:CursedChestEvent": {
+    "TEXT" : ["Cursed Treasure"],
+    "EXTRA_TEXT" : ["This room contains a chest that #rcurses you when opened."]
+  },
+  "spirelocations:Strawberry": {
+    "TEXT" : ["Old Garden"],
+    "EXTRA_TEXT" : ["Rewards include an additional #yStrawberry, increasing your Max HP by #b7."]
+  },
+  "spirelocations:Slimed": {
+    "TEXT" : ["Slimy Swamp"],
+    "EXTRA_TEXT" : ["At the start of combat, add #b3 #ySlimed to your draw pile."]
+  },
+  "spirelocations:Snecko": {
+    "TEXT" : ["Snecko Temple"],
+    "EXTRA_TEXT" : ["Draw #b1 additional card each turn. Start the combat #yConfused."]
+  },
+  "spirelocations:CampfireCardReward": {
+    "TEXT" : ["Forgotten Equipment"],
+    "EXTRA_TEXT" : ["Upon entering, you may add #b1 card to your deck."]
+  },
+  "spirelocations:CurrentHealthCost": {
+    "TEXT" : ["Blood Seal"],
+    "EXTRA_TEXT" : ["Opening this chest costs #b20% of your current health."]
+  },
+  "spirelocations:ChestRandomUpgrade": {
+    "TEXT" : ["Blacksmith's Cache"],
+    "EXTRA_TEXT" : ["Upon opening this chest, #yUpgrade #b2 cards from your deck."]
+  }
+}
