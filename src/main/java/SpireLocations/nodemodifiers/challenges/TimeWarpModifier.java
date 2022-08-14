@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class TimeWarpModifier extends AbstractNodeModifier {
 
@@ -40,6 +41,19 @@ public class TimeWarpModifier extends AbstractNodeModifier {
 
     @Override
     public void onGeneration(AbstractRoom room) {
-        NodeModifierField.modifiers.get(room).add(NodeModifierHelper.getModifier(room.getClass(), NodeModType.REWARD));
+        boolean addedReward = false;
+        ArrayList<AbstractNodeModifier> mods = NodeModifierField.modifiers.get(room);
+        while (!addedReward) {
+            AbstractNodeModifier mod = NodeModifierHelper.getModifier(room.getClass(), NodeModType.REWARD);
+            if (mod != null) {
+                if (mods.stream().noneMatch(m -> m.getClass().equals(mod.getClass()))) {
+                    mods.add(mod);
+                    addedReward = true;
+                }
+            } else {
+                break;
+            }
+        }
+
     }
 }

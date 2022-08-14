@@ -16,7 +16,7 @@ public class ConstrictModifier extends AbstractNodeModifier {
     public static final int CONSTRICT_AMOUNT = 4;
 
     public ConstrictModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("Constrict"));
     }
 
     @Override

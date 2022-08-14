@@ -20,7 +20,7 @@ public class OtherColorModifier extends AbstractNodeModifier {
     public final AbstractCard.CardColor modColor;
 
     public OtherColorModifier() {
-        super(ID, NodeModType.SPECIAL);
+        super(ID, NodeModType.SPECIAL, iconPath("ColoredCardReward"));
         if (SpireLocationsMod.initializing) {
             modColor = AbstractCard.CardColor.CURSE;
         } else {

@@ -16,7 +16,7 @@ public class DexterityModifier extends AbstractNodeModifier {
     public static final int DEX_AMOUNT = 2;
 
     public DexterityModifier() {
-        super(ID,NodeModType.BONUS);
+        super(ID,NodeModType.BONUS, iconPath("Dexterity"));
     }
 
     @Override

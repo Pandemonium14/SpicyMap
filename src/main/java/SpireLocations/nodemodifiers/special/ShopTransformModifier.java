@@ -25,7 +25,7 @@ public class ShopTransformModifier extends AbstractNodeModifier {
 
 
     public ShopTransformModifier() {
-        super(ID, NodeModType.SPECIAL);
+        super(ID, NodeModType.SPECIAL,iconPath("ShopTransform"));
         changePurgeTooltip = true;
     }
 

@@ -15,7 +15,7 @@ public class MaxHPLossChestModifier extends AbstractNodeModifier {
     private static final int HP_LOSS = 7;
 
     public MaxHPLossChestModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("Drain"));
     }
 
     @Override

@@ -13,7 +13,7 @@ public class CampfireDigModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("CampfireDig");
 
     public CampfireDigModifier() {
-        super(ID, NodeModType.SPECIAL);
+        super(ID, NodeModType.SPECIAL, iconPath("Dig"));
     }
 
     @Override

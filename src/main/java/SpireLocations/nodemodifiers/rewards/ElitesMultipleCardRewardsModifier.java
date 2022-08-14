@@ -14,7 +14,7 @@ public class ElitesMultipleCardRewardsModifier extends AbstractNodeModifier {
     public static final int NUMBER_OF_REWARDS = 3;
 
     public ElitesMultipleCardRewardsModifier() {
-        super(ID, NodeModType.REWARD);
+        super(ID, NodeModType.REWARD, iconPath("MultipleCardRewards"));
     }
 
     @Override

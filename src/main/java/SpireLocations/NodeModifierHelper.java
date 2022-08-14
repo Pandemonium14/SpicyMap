@@ -46,15 +46,15 @@ public class NodeModifierHelper {
         if (roomClass.equals(RestRoom.class)) {
             return r < 35;
         } else if (roomClass.equals(MonsterRoomElite.class)) {
-            return r < 30;
+            return r < 35;
         } else if (roomClass.equals(MonsterRoom.class)) {
-            return r < 20;
+            return r < 25;
         } else if (roomClass.equals(ShopRoom.class)) {
-            return r < 40;
+            return r < 60;
         } else if (roomClass.equals(EventRoom.class)) {
             return r < 20;
         } else if (roomClass.equals(TreasureRoom.class)) {
-            return r < 30;
+            return r < 35;
         } else {
             return false;
         }
@@ -62,9 +62,9 @@ public class NodeModifierHelper {
 
     private static AbstractNodeModifier.NodeModType rollForType(int floor) {
         int r = AbstractDungeon.mapRng.random(99);
-        if (r < 20) {
+        if (r < 25) {
             return AbstractNodeModifier.NodeModType.SPECIAL;
-        } else if (r < 45) {
+        } else if (r < 60) {
             if (floor > 2) return AbstractNodeModifier.NodeModType.CHALLENGE;
             else return null;
         } else {

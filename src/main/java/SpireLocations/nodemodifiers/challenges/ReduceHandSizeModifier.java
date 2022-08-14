@@ -16,7 +16,7 @@ public class ReduceHandSizeModifier extends AbstractNodeModifier {
     private static final int HAND_SIZE_REDUCTION = 3;
 
     public ReduceHandSizeModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("Tight"));
     }
 
     @Override

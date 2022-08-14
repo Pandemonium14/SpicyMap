@@ -14,7 +14,7 @@ public class SalesModifier extends AbstractNodeModifier {
     private static final float REDUCTION = 0.70f;
 
     public SalesModifier() {
-        super(ID, NodeModType.BONUS);
+        super(ID, NodeModType.BONUS, iconPath("Sales"));
     }
 
     @Override

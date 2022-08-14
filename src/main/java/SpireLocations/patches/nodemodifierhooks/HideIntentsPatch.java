@@ -4,6 +4,7 @@ package SpireLocations.patches.nodemodifierhooks;
 import SpireLocations.nodemodifiers.AbstractNodeModifier;
 import SpireLocations.nodemodifiers.challenges.HideIntentsModifier;
 import SpireLocations.patches.NodeModifierField;
+import basemod.abstracts.CustomMonster;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInstrumentPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -52,6 +53,23 @@ public class HideIntentsPatch {
 
     @SpirePatch2(clz = AbstractMonster.class, method = "renderTip")
     public static class IntentTips {
+
+        @SpireInstrumentPatch
+        public static ExprEditor checkForModifier() {
+            return new ExprEditor() {
+                public void edit(MethodCall m)
+                        throws CannotCompileException
+                {
+                    if (m.getClassName().equals(AbstractPlayer.class.getName())
+                            && m.getMethodName().equals("hasRelic"))
+                        m.replace("{$_ = ($proceed($$) || SpireLocations.patches.nodemodifierhooks.HideIntentsPatch.hideIntents());}");
+                }
+            };
+        }
+    }
+
+    @SpirePatch2(clz = CustomMonster.class, method = "render")
+    public static class IntentRenderCustomMonster {
 
         @SpireInstrumentPatch
         public static ExprEditor checkForModifier() {

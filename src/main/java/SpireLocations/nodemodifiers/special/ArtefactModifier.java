@@ -17,7 +17,7 @@ public class ArtefactModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("Artefact");
 
     public ArtefactModifier() {
-        super(ID, NodeModType.SPECIAL);
+        super(ID, NodeModType.SPECIAL, iconPath("Artefact"));
     }
 
     @Override
@@ -31,7 +31,7 @@ public class ArtefactModifier extends AbstractNodeModifier {
     @Override
     public void atBattleStart() {
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(m, m , new ArtifactPower(m, 3)));
+            addToBot(new ApplyPowerAction(m, m , new ArtifactPower(m, 2)));
         }
         addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, 2)));
     }

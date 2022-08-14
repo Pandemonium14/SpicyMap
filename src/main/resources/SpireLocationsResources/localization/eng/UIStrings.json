@@ -136,6 +136,6 @@
   },
   "spirelocations:ChestRandomUpgrade": {
     "TEXT" : ["Blacksmith's Cache"],
-    "EXTRA_TEXT" : ["Upon opening this chest, #yUpgrade #b2 cards from your deck."]
+    "EXTRA_TEXT" : ["Upon opening this chest, #yUpgrade #b2 random cards from your deck."]
   }
 }

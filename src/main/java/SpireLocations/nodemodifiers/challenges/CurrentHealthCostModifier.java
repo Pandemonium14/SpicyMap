@@ -16,7 +16,7 @@ public class CurrentHealthCostModifier extends AbstractNodeModifier {
     private static final int HP_PROPORTION = 20;
 
     public CurrentHealthCostModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("Bloody"));
     }
 
     @Override

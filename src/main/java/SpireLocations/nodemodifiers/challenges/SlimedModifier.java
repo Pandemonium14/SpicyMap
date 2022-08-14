@@ -15,7 +15,7 @@ public class SlimedModifier extends AbstractNodeModifier {
     public static final int STR_AMOUNT = 2;
 
     public SlimedModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("Slimed"));
     }
 
     @Override

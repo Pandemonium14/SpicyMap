@@ -19,7 +19,7 @@ public class GremlinModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("Gremlin");
 
     public GremlinModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("Gremlin"));
     }
 
     @Override

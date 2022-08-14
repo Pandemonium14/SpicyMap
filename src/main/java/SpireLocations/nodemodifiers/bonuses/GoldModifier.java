@@ -16,7 +16,7 @@ public class GoldModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("Gold");
 
     public GoldModifier() {
-        super(ID, NodeModType.BONUS);
+        super(ID, NodeModType.BONUS, iconPath("Gold"));
     }
 
     @Override

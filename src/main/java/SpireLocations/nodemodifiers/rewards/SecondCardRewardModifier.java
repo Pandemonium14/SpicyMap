@@ -13,7 +13,7 @@ public class SecondCardRewardModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("SecondCardReward");
 
     public SecondCardRewardModifier() {
-        super(ID, NodeModType.REWARD);
+        super(ID, NodeModType.REWARD, iconPath("CardReward"));
     }
 
     @Override

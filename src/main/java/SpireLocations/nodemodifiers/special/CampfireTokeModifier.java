@@ -16,7 +16,7 @@ public class CampfireTokeModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("CampfireToke");
 
     public CampfireTokeModifier() {
-        super(ID, NodeModType.SPECIAL);
+        super(ID, NodeModType.SPECIAL, iconPath("Toke"));
     }
 
     @Override

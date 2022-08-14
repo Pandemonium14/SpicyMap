@@ -48,15 +48,27 @@ public class ChooseOneEvent extends AbstractImageEvent {
     }
 
     private static String getEventTitle(AbstractEvent event) {
+        if (event instanceof AbstractImageEvent) {
+            return ReflectionHacks.getPrivate(event, AbstractImageEvent.class, "title");
+        } else {
+            String titleFromId = ReflectionHacks.getPrivate(event, event.getClass(), "ID");
+            if (titleFromId != null) {
+                return titleFromId;
+            } else {
+                return event.getClass().getSimpleName();
+            }
+        }
+    }
+
+    private static String getEventID(AbstractEvent event) {
         return ReflectionHacks.getPrivate(event, event.getClass(), "ID");
     }
 
     public static void switchToEvent(AbstractEvent event) {
         RoomEventDialog.optionList.clear();// 90
-        AbstractDungeon.eventList.add(0, getEventTitle(event));// 92
         MapRoomNode cur = AbstractDungeon.currMapNode;// 94
         MapRoomNode node = new MapRoomNode(cur.x, cur.y);// 95
-        node.room = new CustomEventRoom();// 96
+        node.room = new SequencedEventRoom(event);
         ArrayList<MapEdge> curEdges = cur.getEdges();// 98
         Iterator var8 = curEdges.iterator();// 99
 
@@ -65,23 +77,21 @@ public class ChooseOneEvent extends AbstractImageEvent {
             node.addEdge(edge);// 100
         }
 
-        AbstractDungeon.player.releaseCard();// 103
-        AbstractDungeon.overlayMenu.hideCombatPanels();// 104
         AbstractDungeon.previousScreen = null;// 105
         AbstractDungeon.dynamicBanner.hide();// 106
         AbstractDungeon.dungeonMapScreen.closeInstantly();// 107
-        AbstractDungeon.closeCurrentScreen();// 108
-        AbstractDungeon.topPanel.unhoverHitboxes();// 109
-        AbstractDungeon.fadeIn();// 110
-        AbstractDungeon.effectList.clear();// 111
-        AbstractDungeon.topLevelEffects.clear();// 112
-        AbstractDungeon.topLevelEffectsQueue.clear();// 113
-        AbstractDungeon.effectsQueue.clear();// 114
-        AbstractDungeon.dungeonMapScreen.dismissable = true;// 115
-        AbstractDungeon.nextRoom = node;// 116
-        AbstractDungeon.setCurrMapNode(node);// 117
-        AbstractDungeon.getCurrRoom().onPlayerEntry();// 118
-        AbstractDungeon.scene.nextRoom(node.room);// 119
-        AbstractDungeon.rs = node.room.event instanceof AbstractImageEvent ? AbstractDungeon.RenderScene.EVENT : AbstractDungeon.RenderScene.NORMAL;// 120
+        AbstractDungeon.closeCurrentScreen();
+        AbstractDungeon.topPanel.unhoverHitboxes();
+        AbstractDungeon.fadeIn();
+        AbstractDungeon.effectList.clear();
+        AbstractDungeon.topLevelEffects.clear();
+        AbstractDungeon.topLevelEffectsQueue.clear();
+        AbstractDungeon.effectsQueue.clear();
+        AbstractDungeon.dungeonMapScreen.dismissable = true;
+        AbstractDungeon.nextRoom = node;
+        AbstractDungeon.setCurrMapNode(node);
+        AbstractDungeon.getCurrRoom().onPlayerEntry();
+        AbstractDungeon.scene.nextRoom(node.room);
+        AbstractDungeon.rs = node.room.event instanceof AbstractImageEvent ? AbstractDungeon.RenderScene.EVENT : AbstractDungeon.RenderScene.NORMAL;
     }
 }

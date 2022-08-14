@@ -17,7 +17,7 @@ public class SneckoModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("Snecko");
 
     public SneckoModifier() {
-        super(ID, NodeModType.SPECIAL);
+        super(ID, NodeModType.SPECIAL, iconPath("Snecko"));
     }
 
     @Override

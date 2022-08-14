@@ -18,7 +18,7 @@ public class RareCardRewardModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("RareCardReward");
 
     public RareCardRewardModifier() {
-        super(ID, NodeModType.REWARD);
+        super(ID, NodeModType.REWARD, iconPath("RareCardReward"));
     }
 
     @Override

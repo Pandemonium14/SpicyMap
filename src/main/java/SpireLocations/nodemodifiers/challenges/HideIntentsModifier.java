@@ -13,7 +13,7 @@ public class HideIntentsModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("HideIntents");
 
     public HideIntentsModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("DarkFog"));
     }
 
 
