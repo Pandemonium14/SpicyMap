@@ -14,7 +14,7 @@ public class ElitesRemovalModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("ElitesRemoval");
 
     public ElitesRemovalModifier() {
-        super(ID, NodeModType.REWARD);
+        super(ID, NodeModType.REWARD, iconPath("Purge"));
     }
 
     @Override

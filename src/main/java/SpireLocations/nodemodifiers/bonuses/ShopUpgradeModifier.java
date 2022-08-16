@@ -5,11 +5,15 @@ import SpireLocations.nodemodifiers.AbstractNodeModifier;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
 import com.megacrit.cardcrawl.shop.ShopScreen;
+import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
+import com.megacrit.cardcrawl.vfx.campfire.CampfireSmithEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import java.util.ArrayList;
 
@@ -20,7 +24,7 @@ public class ShopUpgradeModifier extends AbstractNodeModifier {
     private Texture savedPurgeTexture;
 
     public ShopUpgradeModifier() {
-        super(ID, NodeModType.BONUS);
+        super(ID, NodeModType.BONUS, iconPath("ShopUpgrade"));
     }
 
     @Override
@@ -46,6 +50,8 @@ public class ShopUpgradeModifier extends AbstractNodeModifier {
             AbstractCard c = upgradableCards.get(r);
             if (!selectedCards.contains(c)) {
                 c.upgrade();
+                AbstractDungeon.effectsQueue.add(new UpgradeShineEffect(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+                AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));
                 upgradedACard = true;
             } else {
                 upgradableCards.remove(c);

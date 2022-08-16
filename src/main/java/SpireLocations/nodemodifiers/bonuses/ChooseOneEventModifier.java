@@ -19,7 +19,7 @@ public class ChooseOneEventModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("ChooseOneEvent");
 
     public ChooseOneEventModifier() {
-        super(ID, NodeModType.BONUS);
+        super(ID, NodeModType.BONUS, iconPath("Signs"));
     }
 
     @Override

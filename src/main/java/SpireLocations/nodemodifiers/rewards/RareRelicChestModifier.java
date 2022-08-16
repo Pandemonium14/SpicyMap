@@ -15,7 +15,7 @@ public class RareRelicChestModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("RareRelicChest");
 
     public RareRelicChestModifier() {
-        super(ID, NodeModType.REWARD);
+        super(ID, NodeModType.REWARD, iconPath("ShineDisplay"));
     }
 
     @Override

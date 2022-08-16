@@ -14,7 +14,7 @@ public class StrawberryModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("Strawberry");
 
     public StrawberryModifier() {
-        super(ID, NodeModType.REWARD);
+        super(ID, NodeModType.REWARD, iconPath("Strawberry"));
     }
 
     @Override

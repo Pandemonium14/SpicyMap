@@ -15,7 +15,7 @@ public class ChestRandomUpgradeModifier extends AbstractNodeModifier {
 
 
     public ChestRandomUpgradeModifier() {
-        super(ID, NodeModType.REWARD);
+        super(ID, NodeModType.REWARD, iconPath("UpArrowCardReward"));
     }
 
     @Override

@@ -15,7 +15,7 @@ public class FirstTurnDrawModifier extends AbstractNodeModifier {
     private static final int DRAW_AMOUNT = 2;
 
     public FirstTurnDrawModifier() {
-        super(ID, NodeModType.BONUS);
+        super(ID, NodeModType.BONUS, iconPath("Surprise"));
     }
 
     @Override

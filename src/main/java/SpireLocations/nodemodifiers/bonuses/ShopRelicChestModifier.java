@@ -15,7 +15,7 @@ public class ShopRelicChestModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("ShopRelicChest");
 
     public ShopRelicChestModifier() {
-        super(ID, NodeModType.BONUS);
+        super(ID, NodeModType.BONUS, iconPath("ShopRelic"));
     }
 
     @Override

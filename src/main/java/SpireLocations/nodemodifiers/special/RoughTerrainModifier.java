@@ -19,7 +19,7 @@ public class RoughTerrainModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("RoughTerrain");
 
     public RoughTerrainModifier() {
-        super(ID, NodeModType.SPECIAL);
+        super(ID, NodeModType.SPECIAL, iconPath("Tools"));
     }
 
     @Override

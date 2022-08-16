@@ -43,9 +43,16 @@ public class NodeRenderPatch {
                 float drawScale = scale * Settings.scale;
                 if (Settings.isMobile) drawScale *= 2f;
 
+                int nbOfIcons = 0;
                 for (AbstractNodeModifier mod : mods) {
                     mod.render(sb, drawScale, x, y);
-                    x = x - 55f * drawScale;
+                    nbOfIcons += 1;
+                    if (nbOfIcons == 1) {
+                        x = x - 55f * drawScale;
+                    } else if (nbOfIcons == 2) {
+                        x = x + 27.5f*drawScale;
+                        y = y - 27.5f*drawScale;
+                    }
                 }
 
 

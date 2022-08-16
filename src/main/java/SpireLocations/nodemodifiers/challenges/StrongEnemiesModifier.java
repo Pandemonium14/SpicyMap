@@ -18,7 +18,7 @@ public class StrongEnemiesModifier extends AbstractNodeModifier {
     public static final int STR_AMOUNT = 2;
 
     public StrongEnemiesModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("DemonForm"));
     }
 
     @Override

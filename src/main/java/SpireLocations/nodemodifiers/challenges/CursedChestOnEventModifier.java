@@ -20,7 +20,7 @@ public class CursedChestOnEventModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("CursedChestEvent");
 
     public CursedChestOnEventModifier() {
-        super(ID, NodeModType.CHALLENGE);
+        super(ID, NodeModType.CHALLENGE, iconPath("CursedChest"));
     }
 
     @Override
