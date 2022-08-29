@@ -15,7 +15,7 @@ public class OnEnterRoomPatch {
 
 
     @SpirePostfixPatch
-    public static void spicyMapOnEnterRoom() {
+    public static void spireLocationsOnEnterRoom() {
         if (AbstractDungeon.nextRoom != null) {
             AbstractRoom room = AbstractDungeon.nextRoom.getRoom();
             if (room != null) {

@@ -47,7 +47,7 @@ public class ChooseOneEvent extends AbstractImageEvent {
         }
     }
 
-    private static String getEventTitle(AbstractEvent event) {
+    public static String getEventTitle(AbstractEvent event) {
         if (event instanceof AbstractImageEvent) {
             return ReflectionHacks.getPrivate(event, AbstractImageEvent.class, "title");
         } else {

@@ -3,6 +3,7 @@ package SpireLocations.nodemodifiers.challenges;
 import SpireLocations.SpireLocationsMod;
 import SpireLocations.nodemodifiers.AbstractNodeModifier;
 import basemod.ReflectionHacks;
+import com.megacrit.cardcrawl.actions.common.SpawnMonsterAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -67,14 +68,12 @@ public class GremlinModifier extends AbstractNodeModifier {
     }
 
     @Override
-    public void postEnterRoom(AbstractRoom room) {
+    public void atBattleStart() {
         int nbOfGremlins = AbstractDungeon.actNum;
-        ArrayList<AbstractMonster> gremlins = getGremlins(nbOfGremlins, room.monsters.monsters);
+        ArrayList<AbstractMonster> gremlins = getGremlins(nbOfGremlins, AbstractDungeon.getCurrRoom().monsters.monsters);
         for (AbstractMonster gremlin : gremlins) {
-            gremlin.rollMove();
-            ReflectionHacks.setPrivate(gremlin, AbstractCreature.class, "targetHealthBarWidth", gremlin.hb.width * (float)gremlin.currentHealth / (float)gremlin.maxHealth);
+            addToBot(new SpawnMonsterAction(gremlin, false));
         }
-        room.monsters.monsters.addAll(gremlins);
     }
 
     @Override

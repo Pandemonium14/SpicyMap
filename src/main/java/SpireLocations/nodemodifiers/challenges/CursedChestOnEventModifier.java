@@ -2,6 +2,8 @@ package SpireLocations.nodemodifiers.challenges;
 
 import SpireLocations.NodeModifierHelper;
 import SpireLocations.SpireLocationsMod;
+import SpireLocations.actionsandeffects.AddModifierEffect;
+import SpireLocations.actionsandeffects.RemoveModifierEffect;
 import SpireLocations.nodemodifiers.AbstractNodeModifier;
 import SpireLocations.patches.NodeModifierField;
 import com.megacrit.cardcrawl.core.Settings;
@@ -41,17 +43,14 @@ public class CursedChestOnEventModifier extends AbstractNodeModifier {
     }
 
     @Override
-    public void onGeneration(AbstractRoom room) {
+    public void onGeneration(AbstractRoom room, int floor) {
         ArrayList<AbstractNodeModifier> mods = NodeModifierField.modifiers.get(room);
         ArrayList<AbstractNodeModifier> toRemove = new ArrayList<>();
         for (AbstractNodeModifier mod : mods) {
             if (mod.type == NodeModType.REWARD) {
-                toRemove.add(mod);
+                AbstractDungeon.effectsQueue.add(new RemoveModifierEffect(mod, room));
             }
         }
-        for (AbstractNodeModifier mod : toRemove) {
-            mods.remove(mod);
-        }
-        mods.add(NodeModifierHelper.getModifier(TreasureRoom.class, NodeModType.REWARD));
+        AbstractDungeon.effectsQueue.add(new AddModifierEffect(NodeModifierHelper.getModifier(TreasureRoom.class, NodeModType.REWARD), room, floor));
     }
 }

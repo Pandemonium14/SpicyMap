@@ -30,7 +30,7 @@
   },
   "spirelocations:OtherColor": {
     "TEXT" : ["Colorful"],
-    "EXTRA_TEXT" : ["This room' card reward contains "," cards."]
+    "EXTRA_TEXT" : ["This room's card reward contains "," cards."]
   },
   "spirelocations:ShopTransform": {
     "TEXT" : ["Experimental"],
@@ -137,5 +137,9 @@
   "spirelocations:ChestRandomUpgrade": {
     "TEXT" : ["Blacksmith's Cache"],
     "EXTRA_TEXT" : ["Upon opening this chest, #yUpgrade #b2 random cards from your deck."]
+  },
+  "spirelocations:SpecificEvent": {
+    "TEXT" : ["Useful Map"],
+    "EXTRA_TEXT" : ["Your map says this room contains #p","."]
   }
 }

@@ -17,7 +17,6 @@ public class NodeModifierHelper {
 
 
     public static void addModifier(MapRoomNode node, int floor) {
-
         AbstractRoom room = node.getRoom();
         if (shouldAddModifier(room.getClass())) {
             AbstractNodeModifier.NodeModType type = rollForType(floor);
@@ -25,20 +24,21 @@ public class NodeModifierHelper {
             AbstractNodeModifier mod = getModifier(room.getClass(), type);
             if (mod != null) {
                 NodeModifierField.modifiers.get(room).add(mod);
-                mod.onGeneration(room);
+
                 if (mod.type == AbstractNodeModifier.NodeModType.CHALLENGE) {
                     AbstractNodeModifier rewardMod = getModifier(room.getClass(), AbstractNodeModifier.NodeModType.REWARD);
                     if (rewardMod != null) {
                         NodeModifierField.modifiers.get(room).add(rewardMod);
-                        rewardMod.onGeneration(room);
                         BaseMod.logger.log(Level.INFO, "Adding reward to challenge node : " + rewardMod.MODIFIER_ID);
                     }
                 }
+                for (AbstractNodeModifier m : NodeModifierField.modifiers.get(room)) {
+                    m.onGeneration(room);
+                    m.onGeneration(room,floor);
+                }
             }
         }
-
     }
-
 
 
     private static boolean shouldAddModifier(Class<? extends AbstractRoom> roomClass) {

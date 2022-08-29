@@ -2,6 +2,7 @@ package SpireLocations.nodemodifiers.challenges;
 
 import SpireLocations.NodeModifierHelper;
 import SpireLocations.SpireLocationsMod;
+import SpireLocations.actionsandeffects.AddModifierEffect;
 import SpireLocations.nodemodifiers.AbstractNodeModifier;
 import SpireLocations.patches.NodeModifierField;
 import basemod.BaseMod;
@@ -42,7 +43,7 @@ public class TimeWarpModifier extends AbstractNodeModifier {
     }
 
     @Override
-    public void onGeneration(AbstractRoom room) {
+    public void onGeneration(AbstractRoom room, int floor) {
         boolean addedReward = false;
         ArrayList<AbstractNodeModifier> mods = NodeModifierField.modifiers.get(room);
         while (!addedReward) {
@@ -51,7 +52,7 @@ public class TimeWarpModifier extends AbstractNodeModifier {
                 BaseMod.logger.log(Level.INFO,"Trying to add reward " + mod.MODIFIER_ID + " to Time warp node...");
                 if (mods.stream().noneMatch(m -> m.MODIFIER_ID.equals(mod.MODIFIER_ID))) {
                     BaseMod.logger.log(Level.INFO, "Successfully added" + mod.MODIFIER_ID + "modifier to Time Warp node.");
-                    mods.add(mod);
+                    AbstractDungeon.effectsQueue.add(new AddModifierEffect(mod, room, floor));
                     addedReward = true;
                 } else {
                     BaseMod.logger.log(Level.INFO, mod.MODIFIER_ID + " is already present in that room.");

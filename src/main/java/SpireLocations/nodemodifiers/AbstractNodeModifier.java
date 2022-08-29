@@ -67,6 +67,8 @@ public abstract class AbstractNodeModifier {
 
     public void onGeneration(AbstractRoom room) {}
 
+    public void onGeneration(AbstractRoom room, int floor) {}
+
     public void modifyCampfireOptions(ArrayList<AbstractCampfireOption> options) {}
 
     public String[] purgeTooltip() {
