@@ -140,6 +140,10 @@
   },
   "spirelocations:SpecificEvent": {
     "TEXT" : ["Useful Map"],
-    "EXTRA_TEXT" : ["Your map says this room contains #p","."]
+    "EXTRA_TEXT" : ["Your map says this room contains #p",".", "a #prandom #pevent"]
+  },
+  "spirelocations:NoPotionsChest": {
+    "TEXT" : ["Seal of Thirst"],
+    "EXTRA_TEXT" : ["You can only open this chest if don't carry any potion."]
   }
 }

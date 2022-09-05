@@ -71,6 +71,10 @@ public abstract class AbstractNodeModifier {
 
     public void modifyCampfireOptions(ArrayList<AbstractCampfireOption> options) {}
 
+
+    //return false to prevent the chest's opening
+    public boolean onTryOpenChest() {return true;}
+
     public String[] purgeTooltip() {
         return new String[2];
     }

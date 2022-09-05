@@ -33,7 +33,12 @@ public class SpecificEventModifier extends AbstractNodeModifier {
     public void onGeneration(AbstractRoom room, int floor) {
         int realFloor = AbstractDungeon.floorNum;
         AbstractDungeon.floorNum = floor;
-        event = AbstractDungeon.generateEvent(AbstractDungeon.mapRng);
+        try {
+            event = AbstractDungeon.generateEvent(AbstractDungeon.mapRng);
+        } catch (Exception e) {
+            event = null;
+        }
+
         AbstractDungeon.floorNum = realFloor;
     }
 
@@ -44,15 +49,22 @@ public class SpecificEventModifier extends AbstractNodeModifier {
 
     @Override
     public void modifyEvent(AbstractEvent intendedEvent) {
-        AbstractDungeon.nextRoom.room.event = event;
+        if (event != null) {
+            AbstractDungeon.nextRoom.room.event = event;
+        }
     }
 
     @Override
     public String[] getTooltipStrings() {
         String[] result = new String[2];
         result[0] = strings.TEXT[0];
-        String eventName = ChooseOneEvent.getEventTitle(event);
-        eventName = eventName.replace(" ", " #p");
+        String eventName;
+        if (event != null) {
+            eventName = ChooseOneEvent.getEventTitle(event);
+            eventName = eventName.replace(" ", " #p");
+        } else {
+            eventName = strings.EXTRA_TEXT[2];
+        }
         result[1] = strings.EXTRA_TEXT[0] + eventName + strings.EXTRA_TEXT[1];
         return result;
     }

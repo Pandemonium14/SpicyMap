@@ -51,12 +51,17 @@ public class ChooseOneEvent extends AbstractImageEvent {
         if (event instanceof AbstractImageEvent) {
             return ReflectionHacks.getPrivate(event, AbstractImageEvent.class, "title");
         } else {
-            String titleFromId = ReflectionHacks.getPrivate(event, event.getClass(), "ID");
-            if (titleFromId != null) {
-                return titleFromId;
-            } else {
+            try {
+                String titleFromId = ReflectionHacks.getPrivate(event, event.getClass(), "ID");
+                if (titleFromId != null) {
+                    return titleFromId;
+                } else {
+                    return event.getClass().getSimpleName();
+                }
+            } catch (Exception ex) {
                 return event.getClass().getSimpleName();
             }
+
         }
     }
 
