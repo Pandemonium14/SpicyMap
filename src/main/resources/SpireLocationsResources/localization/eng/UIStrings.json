@@ -145,5 +145,13 @@
   "spirelocations:NoPotionsChest": {
     "TEXT" : ["Seal of Thirst"],
     "EXTRA_TEXT" : ["You can only open this chest if don't carry any potion."]
+  },
+  "spirelocations:FromAnywhere": {
+    "TEXT" : ["Spatial Keystone"],
+    "EXTRA_TEXT" : ["You can access this room from anywhere in the floor below it."]
+  },
+  "spirelocations:Flying": {
+    "TEXT" : ["Spatial Fracture"],
+    "EXTRA_TEXT" : ["You can access any room in the next floor fromm here."]
   }
 }
