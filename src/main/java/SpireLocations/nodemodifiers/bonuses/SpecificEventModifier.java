@@ -68,4 +68,9 @@ public class SpecificEventModifier extends AbstractNodeModifier {
         result[1] = strings.EXTRA_TEXT[0] + eventName + strings.EXTRA_TEXT[1];
         return result;
     }
+
+    @Override
+    public boolean isEnabled() {
+        return !SpireLocationsMod.disableSpecificEvent;
+    }
 }

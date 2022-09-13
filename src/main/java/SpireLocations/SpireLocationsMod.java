@@ -8,6 +8,7 @@ import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.core.DisplayConfig;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -30,8 +31,12 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
     public static Properties spireLocationsDefault = new Properties();
     public static SpireConfig spireLocationsConfig = null;
     public static String NODE_SCALE_CONFIG = "NODE_SCALE";
+    public static String BONUS_MOD_CONFIG = "ADDITIONAL_MODIFIER_PROB";
+    public static String DISABLE_SPECIFIC_EVENT ="DISABLE_SPECIFIC_EVENT_MODIFIER";
 
     public static float mapNodeScaling = 1.3f;
+    public static int bonusModifierProb = 0;
+    public static boolean disableSpecificEvent = false;
 
 
 
@@ -46,6 +51,8 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
 
         //config setup in the file's constructor
         spireLocationsDefault.put(NODE_SCALE_CONFIG, 1.3f);
+        spireLocationsDefault.put(BONUS_MOD_CONFIG, 0);
+        spireLocationsDefault.put(DISABLE_SPECIFIC_EVENT, false);
         try {
             spireLocationsConfig = new SpireConfig("spirelocations","spireLocationsConfig", spireLocationsDefault);
         } catch (IOException e) {
@@ -55,6 +62,8 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
         try {
             spireLocationsConfig.load();
             mapNodeScaling = spireLocationsConfig.getFloat(NODE_SCALE_CONFIG);
+            bonusModifierProb = spireLocationsConfig.getInt(BONUS_MOD_CONFIG);
+            disableSpecificEvent = spireLocationsConfig.getBool(DISABLE_SPECIFIC_EVENT);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,16 +88,17 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
     public void receivePostInitialize() {
         new AutoAdd(modID)
                 .packageFilter("SpireLocations.nodemodifiers")
-                .any(AbstractNodeModifier.class, ((info, nodeMod) -> NodeModifierHelper.nodeModifiers.add(nodeMod)));
+                .any(AbstractNodeModifier.class, ((info, nodeMod) -> NodeModifierHelper.registerModifier(nodeMod)));
         initializing = false;
 
 
         //config screen in receivePostInitialize
         ModPanel modPanel = new ModPanel();
 
-        ModLabel label = new ModLabel("Map node scaling", 450.0f, 700f, Settings.CREAM_COLOR, FontHelper.charDescFont, modPanel, modLabel -> {});
-        float yOffset = FontHelper.getWidth(FontHelper.charDescFont,"Map node scaling", Settings.scale);
-        ModMinMaxSlider slider = new ModMinMaxSlider("",450.0f + yOffset + 25f,700f,
+        //Node scale config
+        ModLabel nodeScaleLabel = new ModLabel("Map node scaling", 450.0f, 700f, Settings.CREAM_COLOR, FontHelper.charDescFont, modPanel, modLabel -> {});
+        float yOffsetNodeScale = FontHelper.getWidth(FontHelper.charDescFont,"Map node scaling", Settings.scale);
+        ModMinMaxSlider nodeScaleSlider = new ModMinMaxSlider("",450.0f + yOffsetNodeScale + 25f,700f,
                 0f,200f, mapNodeScaling, "%.0f %%", modPanel,
                 (modSlider) -> {
                     mapNodeScaling = modSlider.getValue();
@@ -98,12 +108,50 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
                     }
 
                 });
-        slider.setValue(mapNodeScaling);
-        modPanel.addUIElement(label);
-        modPanel.addUIElement(slider);
+        nodeScaleSlider.setValue(mapNodeScaling);
+        modPanel.addUIElement(nodeScaleLabel);
+        modPanel.addUIElement(nodeScaleSlider);
+
+        //Bonus probability config
+        ModLabel bonusProbLabel = new ModLabel("Additional modifier spawn chance", 450.0f, 650f, Settings.CREAM_COLOR, FontHelper.charDescFont, modPanel, modLabel -> {});
+        float yOffsetBonusProb = FontHelper.getWidth(FontHelper.charDescFont,"Additional modifier spawn chance", Settings.scale);
+        ModMinMaxSlider bonusProbSlider = new ModMinMaxSlider("",450.0f + yOffsetBonusProb + 25f,650f,
+                -20f,20f, mapNodeScaling, "%.0f %%", modPanel,
+                (modSlider) -> {
+                    bonusModifierProb = (int)modSlider.getValue();
+                    if (spireLocationsConfig != null) {
+                        spireLocationsConfig.setInt(BONUS_MOD_CONFIG, bonusModifierProb);
+                        saveConfig(spireLocationsConfig);
+                    }
+
+                });
+        bonusProbSlider.setValue(bonusModifierProb);
+        modPanel.addUIElement(bonusProbLabel);
+        modPanel.addUIElement(bonusProbSlider);
+
+        //Disable SpecificEventModifier config
+
+        ModLabeledToggleButton disableSpecificEventButton = new ModLabeledToggleButton("Disable the Useful Map node modifier (requires a restart)",
+                450.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
+                disableSpecificEvent, // Boolean it uses
+                modPanel, // The mod panel in which this button will be in
+                (label) -> {}, // thing??????? idk
+                (button) -> { // The actual button:
+
+                    disableSpecificEvent = button.enabled; // The boolean true/false will be whether the button is enabled or not
+                    try {
+                        spireLocationsConfig.setBool(DISABLE_SPECIFIC_EVENT, disableSpecificEvent);
+                        spireLocationsConfig.save();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+        modPanel.addUIElement(disableSpecificEventButton);
+
+
 
         BaseMod.registerModBadge(ImageMaster.loadImage("SpireLocationsResources/images/ui/Badge.png"),
-                "Spire Locations", "Pandemonium", "This is a description", modPanel);
+                "Spire Locations", "Pandemonium", "Adds modifiers to nodes on the map. Config includes node scale, modifier spawn chance and disabling some modifiers, for stability purposes", modPanel);
     }
 
 

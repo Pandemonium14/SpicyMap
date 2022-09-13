@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.rooms.TreasureRoom;
 
 import java.util.ArrayList;
 
-@AutoAdd.Ignore
 public class NoPotionsChestModifier extends AbstractNodeModifier {
     public static final String ID = SpireLocationsMod.makeID("NoPotionsChest");
 
@@ -37,5 +36,10 @@ public class NoPotionsChestModifier extends AbstractNodeModifier {
             }
         }
         return openChest;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 }

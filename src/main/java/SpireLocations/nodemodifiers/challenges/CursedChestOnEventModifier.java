@@ -54,6 +54,6 @@ public class CursedChestOnEventModifier extends AbstractNodeModifier {
                 AbstractDungeon.effectsQueue.add(new RemoveModifierEffect(mod, room));
             }
         }
-        AbstractDungeon.effectsQueue.add(new AddModifierEffect(NodeModifierHelper.getModifier(TreasureRoom.class, NodeModType.REWARD), room, floor));
+        AbstractDungeon.effectsQueue.add(new AddModifierEffect(NodeModifierHelper.getModifier(TreasureRoom.class, NodeModType.REWARD, AbstractDungeon.actNum), room, floor));
     }
 }

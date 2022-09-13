@@ -47,7 +47,7 @@ public class TimeWarpModifier extends AbstractNodeModifier {
         boolean addedReward = false;
         ArrayList<AbstractNodeModifier> mods = NodeModifierField.modifiers.get(room);
         while (!addedReward) {
-            AbstractNodeModifier mod = NodeModifierHelper.getModifier(room.getClass(), NodeModType.REWARD);
+            AbstractNodeModifier mod = NodeModifierHelper.getModifier(room.getClass(), NodeModType.REWARD, AbstractDungeon.actNum);
             if (mod != null) {
                 BaseMod.logger.log(Level.INFO,"Trying to add reward " + mod.MODIFIER_ID + " to Time warp node...");
                 if (mods.stream().noneMatch(m -> m.MODIFIER_ID.equals(mod.MODIFIER_ID))) {
@@ -62,5 +62,10 @@ public class TimeWarpModifier extends AbstractNodeModifier {
             }
         }
 
+    }
+
+    @Override
+    public boolean enableInAct(int actNum) {
+        return actNum >= 2;
     }
 }

@@ -14,6 +14,11 @@ public class NodeModifierHelper {
 
     public static ArrayList<AbstractNodeModifier> nodeModifiers = new ArrayList<>();
 
+    public static void registerModifier(AbstractNodeModifier mod) {
+        if (mod.isEnabled()) {
+            nodeModifiers.add(mod);
+        }
+    }
 
 
     public static void addModifier(MapRoomNode node, int floor) {
@@ -21,12 +26,12 @@ public class NodeModifierHelper {
         if (shouldAddModifier(room.getClass())) {
             AbstractNodeModifier.NodeModType type = rollForType(floor);
             if (type == null) return;
-            AbstractNodeModifier mod = getModifier(room.getClass(), type);
+            AbstractNodeModifier mod = getModifier(room.getClass(), type, AbstractDungeon.actNum);
             if (mod != null) {
                 NodeModifierField.modifiers.get(room).add(mod);
 
                 if (mod.type == AbstractNodeModifier.NodeModType.CHALLENGE) {
-                    AbstractNodeModifier rewardMod = getModifier(room.getClass(), AbstractNodeModifier.NodeModType.REWARD);
+                    AbstractNodeModifier rewardMod = getModifier(room.getClass(), AbstractNodeModifier.NodeModType.REWARD, AbstractDungeon.actNum);
                     if (rewardMod != null) {
                         NodeModifierField.modifiers.get(room).add(rewardMod);
                         BaseMod.logger.log(Level.INFO, "Adding reward to challenge node : " + rewardMod.MODIFIER_ID);
@@ -43,6 +48,7 @@ public class NodeModifierHelper {
 
     private static boolean shouldAddModifier(Class<? extends AbstractRoom> roomClass) {
         int r = AbstractDungeon.mapRng.random(99);
+        r -= SpireLocationsMod.bonusModifierProb;
         if (roomClass.equals(RestRoom.class)) {
             return r < 35;
         } else if (roomClass.equals(MonsterRoomElite.class)) {
@@ -73,10 +79,10 @@ public class NodeModifierHelper {
     }
 
 
-    public static AbstractNodeModifier getModifier(Class<? extends AbstractRoom> roomClass, AbstractNodeModifier.NodeModType type) {
+    public static AbstractNodeModifier getModifier(Class<? extends AbstractRoom> roomClass, AbstractNodeModifier.NodeModType type, int actNum) {
         ArrayList<AbstractNodeModifier> list = new ArrayList<>();
         for (AbstractNodeModifier mod : nodeModifiers) {
-            if (mod.type == type && mod.roomClasses.contains(roomClass)) {
+            if (mod.type == type && mod.roomClasses.contains(roomClass) && mod.enableInAct(actNum)) {
                 list.add(mod);
             }
         }

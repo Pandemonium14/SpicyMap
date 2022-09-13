@@ -15,10 +15,11 @@ import java.util.ArrayList;
 public class StrongEnemiesModifier extends AbstractNodeModifier {
 
     public static final String ID = SpireLocationsMod.makeID("StrongEnemies");
-    public static final int STR_AMOUNT = 2;
+    public int strAmount = 2;
 
     public StrongEnemiesModifier() {
         super(ID, NodeModType.CHALLENGE, iconPath("DemonForm"));
+        strAmount = AbstractDungeon.actNum;
     }
 
     @Override
@@ -32,7 +33,15 @@ public class StrongEnemiesModifier extends AbstractNodeModifier {
     public void atBattleStart() {
         MonsterGroup monsters = AbstractDungeon.getMonsters();
         for (AbstractMonster m : monsters.monsters) {
-            addToBot(new ApplyPowerAction(m,m, new StrengthPower(m, STR_AMOUNT)));
+            addToBot(new ApplyPowerAction(m,m, new StrengthPower(m, strAmount)));
         }
+    }
+
+    @Override
+    public String[] getTooltipStrings() {
+        String[] result = new String[2];
+        result[0] = strings.TEXT[0];
+        result[1] = strings.EXTRA_TEXT[0] + strAmount + strings.EXTRA_TEXT[1];
+        return result;
     }
 }

@@ -36,4 +36,9 @@ public class ReduceHandSizeModifier extends AbstractNodeModifier {
     public void onLeaveRoom() {
         BaseMod.MAX_HAND_SIZE += HAND_SIZE_REDUCTION;
     }
+
+    @Override
+    public boolean enableInAct(int actNum) {
+        return actNum >= 2;
+    }
 }

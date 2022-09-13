@@ -50,8 +50,8 @@ public class ShopUpgradeModifier extends AbstractNodeModifier {
             AbstractCard c = upgradableCards.get(r);
             if (!selectedCards.contains(c)) {
                 c.upgrade();
-                AbstractDungeon.effectsQueue.add(new UpgradeShineEffect(Settings.WIDTH / 4.0F, Settings.HEIGHT / 2.0F));
-                AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(),Settings.WIDTH / 4.0F, Settings.HEIGHT / 2.0F));
+                AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(Settings.WIDTH / 4.0F, Settings.HEIGHT / 2.0F));
+                AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(),Settings.WIDTH / 4.0F, Settings.HEIGHT / 2.0F));
                 upgradedACard = true;
             } else {
                 upgradableCards.remove(c);

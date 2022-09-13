@@ -1,6 +1,7 @@
 package SpireLocations.nodemodifiers.rewards;
 
 import SpireLocations.SpireLocationsMod;
+import SpireLocations.actionsandeffects.QueueEffectEffect;
 import SpireLocations.nodemodifiers.AbstractNodeModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -32,12 +33,13 @@ public class ChestRandomUpgradeModifier extends AbstractNodeModifier {
     public void onOpenChest() {
         ArrayList<AbstractCard> upgradableCards = AbstractDungeon.player.masterDeck.getUpgradableCards().group;
         int upgradedCards = 0;
-        while (upgradableCards.size() > 0 && upgradedCards < 3) {
+        while (upgradableCards.size() > 0 && upgradedCards < 2) {
             int r = AbstractDungeon.cardRng.random(upgradableCards.size() - 1);
             AbstractCard c = upgradableCards.get(r);
+            upgradableCards.remove(c);
             c.upgrade();
-            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((Settings.WIDTH / 3.0F)*(1+upgradedCards), Settings.HEIGHT / 2.0F));
-            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(),(Settings.WIDTH / 3.0F)*(1+upgradedCards), Settings.HEIGHT / 2.0F));
+            AbstractDungeon.effectsQueue.add(new QueueEffectEffect(new UpgradeShineEffect((Settings.WIDTH / 3.0F)*(1+upgradedCards), Settings.HEIGHT / 2.0F), true));
+            AbstractDungeon.effectsQueue.add(new QueueEffectEffect(new  ShowCardBrieflyEffect(c.makeStatEquivalentCopy(),(Settings.WIDTH / 3.0F)*(1+upgradedCards), Settings.HEIGHT / 2.0F), true));
             upgradedCards += 1;
         }
     }

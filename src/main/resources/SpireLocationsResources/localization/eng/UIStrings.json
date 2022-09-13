@@ -9,7 +9,7 @@
   },
   "spirelocations:StrongEnemies": {
     "TEXT" : ["Dark Influence"],
-    "EXTRA_TEXT" : ["Enemies start this combat with #b2 Strength."]
+    "EXTRA_TEXT" : ["Enemies start this combat with #b"," Strength."]
   },
   "spirelocations:SecondCardReward": {
     "TEXT" : ["Plentiful"],
@@ -60,7 +60,7 @@
   },
   "spirelocations:Constrict": {
     "TEXT" : ["Corrupted Growth"],
-    "EXTRA_TEXT" : ["At the start of combat, gain #b4 #yConstricted, dealing damage to you at the end of your turn."]
+    "EXTRA_TEXT" : ["At the start of combat, gain #b"," #yConstricted, dealing damage to you at the end of your turn."]
   },
   "spirelocations:Artefact": {
     "TEXT" : ["Ancient Ruins"],
@@ -152,6 +152,6 @@
   },
   "spirelocations:Flying": {
     "TEXT" : ["Spatial Fracture"],
-    "EXTRA_TEXT" : ["You can access any room in the next floor fromm here."]
+    "EXTRA_TEXT" : ["You can access any room in the next floor from here."]
   }
 }

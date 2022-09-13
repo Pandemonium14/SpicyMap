@@ -100,6 +100,10 @@ public abstract class AbstractNodeModifier {
         return null;
     }
 
+    public boolean enableInAct(int actNum) {
+        return true;
+    }
+
     public enum NodeModType {
         BONUS, CHALLENGE, SPECIAL, REWARD
     }
@@ -141,6 +145,10 @@ public abstract class AbstractNodeModifier {
         result[0] = strings.TEXT[0];
         result[1] = strings.EXTRA_TEXT[0];
         return result;
+    }
+
+    public boolean isEnabled() {
+        return true;
     }
 
     public static String iconPath(String icon) {

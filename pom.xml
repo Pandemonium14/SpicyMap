@@ -4,7 +4,7 @@
     <groupId>UnimportantInfo</groupId>
 
     <artifactId>SpireLocations</artifactId>
-    <version>0.2.3</version>
+    <version>1.0.0</version>
     <name>SpireLocations</name>
     <description>Adds modifiers to nodes, with various effects.</description>
     <!-- Change the above for mod information. -->

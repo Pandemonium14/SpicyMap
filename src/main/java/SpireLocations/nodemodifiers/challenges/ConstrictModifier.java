@@ -13,10 +13,11 @@ import java.util.ArrayList;
 public class ConstrictModifier extends AbstractNodeModifier {
 
     public static final String ID = SpireLocationsMod.makeID("Constrict");
-    public static final int CONSTRICT_AMOUNT = 4;
+    public int constrictAmount;
 
     public ConstrictModifier() {
         super(ID, NodeModType.CHALLENGE, iconPath("Constrict"));
+        constrictAmount = AbstractDungeon.actNum*2;
     }
 
     @Override
@@ -30,6 +31,14 @@ public class ConstrictModifier extends AbstractNodeModifier {
     @Override
     public void atBattleStart() {
         AbstractPlayer p = AbstractDungeon.player;
-        addToBot(new ApplyPowerAction(p, p, new ConstrictedPower(p, p, CONSTRICT_AMOUNT)));
+        addToBot(new ApplyPowerAction(p, p, new ConstrictedPower(p, p, constrictAmount)));
+    }
+
+    @Override
+    public String[] getTooltipStrings() {
+        String[] result = new String[2];
+        result[0] = strings.TEXT[0];
+        result[1] = strings.EXTRA_TEXT[0] + constrictAmount + strings.EXTRA_TEXT[1];
+        return result;
     }
 }
