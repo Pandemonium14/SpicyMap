@@ -6,6 +6,7 @@ import SpireLocations.relic.RemovalRelic;
 import basemod.*;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.DisplayConfig;
@@ -16,8 +17,11 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import org.apache.logging.log4j.Level;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Properties;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
@@ -34,7 +38,7 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
     public static String BONUS_MOD_CONFIG = "ADDITIONAL_MODIFIER_PROB";
     public static String DISABLE_SPECIFIC_EVENT ="DISABLE_SPECIFIC_EVENT_MODIFIER";
 
-    public static float mapNodeScaling = 1.3f;
+    public static float mapNodeScaling = 130f;
     public static int bonusModifierProb = 0;
     public static boolean disableSpecificEvent = false;
 
@@ -50,7 +54,7 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
 
 
         //config setup in the file's constructor
-        spireLocationsDefault.put(NODE_SCALE_CONFIG, 1.3f);
+        spireLocationsDefault.put(NODE_SCALE_CONFIG, 130f);
         spireLocationsDefault.put(BONUS_MOD_CONFIG, 0);
         spireLocationsDefault.put(DISABLE_SPECIFIC_EVENT, false);
         try {
@@ -58,11 +62,22 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         try {
             spireLocationsConfig.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
             mapNodeScaling = spireLocationsConfig.getFloat(NODE_SCALE_CONFIG);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
             bonusModifierProb = spireLocationsConfig.getInt(BONUS_MOD_CONFIG);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
             disableSpecificEvent = spireLocationsConfig.getBool(DISABLE_SPECIFIC_EVENT);
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,13 +147,13 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
         //Disable SpecificEventModifier config
 
         ModLabeledToggleButton disableSpecificEventButton = new ModLabeledToggleButton("Disable the Useful Map node modifier (requires a restart)",
-                450.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
-                disableSpecificEvent, // Boolean it uses
-                modPanel, // The mod panel in which this button will be in
-                (label) -> {}, // thing??????? idk
-                (button) -> { // The actual button:
+                450.0f, 600.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                disableSpecificEvent,
+                modPanel,
+                (label) -> {},
+                (button) -> {
 
-                    disableSpecificEvent = button.enabled; // The boolean true/false will be whether the button is enabled or not
+                    disableSpecificEvent = button.enabled;
                     try {
                         spireLocationsConfig.setBool(DISABLE_SPECIFIC_EVENT, disableSpecificEvent);
                         spireLocationsConfig.save();
@@ -172,9 +187,17 @@ public class SpireLocationsMod implements PostInitializeSubscriber, OnStartBattl
 
     @Override
     public void receiveEditStrings() {
-        BaseMod.loadCustomStringsFile(UIStrings.class, "SpireLocationsResources/localization/eng/UIStrings.json" );
-        BaseMod.loadCustomStringsFile(RelicStrings.class, "SpireLocationsResources/localization/eng/RelicStrings.json");
-        BaseMod.loadCustomStringsFile(EventStrings.class, "SpireLocationsResources/localization/eng/EventStrings.json");
+        String lang = Settings.language.toString().toLowerCase(Locale.ROOT);
+        try {
+            BaseMod.loadCustomStringsFile(UIStrings.class, "SpireLocationsResources/localization/"+lang+"/UIStrings.json");
+            BaseMod.loadCustomStringsFile(RelicStrings.class, "SpireLocationsResources/localization/"+lang+"/RelicStrings.json");
+            BaseMod.loadCustomStringsFile(EventStrings.class, "SpireLocationsResources/localization/"+lang+"/EventStrings.json");
+        } catch (Exception e) {
+            BaseMod.logger.log(Level.INFO,"Localization folder for language " + lang +" not found. Loading English instead.");
+            BaseMod.loadCustomStringsFile(UIStrings.class, "SpireLocationsResources/localization/eng/UIStrings.json");
+            BaseMod.loadCustomStringsFile(RelicStrings.class, "SpireLocationsResources/localization/eng/RelicStrings.json");
+            BaseMod.loadCustomStringsFile(EventStrings.class, "SpireLocationsResources/localization/eng/EventStrings.json");
+        }
     }
 
 

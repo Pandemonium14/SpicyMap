@@ -1,0 +1,157 @@
+{
+  "spirelocations:Heal": {
+    "TEXT" : ["理想的休息点"],
+    "EXTRA_TEXT" : ["进入这个房间会回复你 #b15% 最大生命值的生命。"]
+  },
+  "spirelocations:Dexterity": {
+    "TEXT" : ["易守之地"],
+    "EXTRA_TEXT" : ["战斗开始时获得 #b2 点敏捷。"]
+  },
+  "spirelocations:StrongEnemies": {
+    "TEXT" : ["黑暗掌控"],
+    "EXTRA_TEXT" : ["战斗开始时敌人获得 #b"," 点力量。"]
+  },
+  "spirelocations:SecondCardReward": {
+    "TEXT" : ["多多益善"],
+    "EXTRA_TEXT" : ["奖励多一张卡牌选择。"]
+  },
+  "spirelocations:RoughTerrain": {
+    "TEXT" : ["险峻的地势"],
+    "EXTRA_TEXT" : ["在这个房间战斗时，每回合多抽 #b1 张牌，但要丢弃 #b2 张牌。"]
+  },
+  "spirelocations:Gremlin": {
+    "TEXT" : ["地精巢穴"],
+    "EXTRA_TEXT" : ["这个房间有一只额外的小地精。",
+      "这个房间有 #b", " 只额外的小地精。"]
+  },
+  "spirelocations:UpgradedRewards": {
+    "TEXT" : ["高品质"],
+    "EXTRA_TEXT" : ["卡牌奖励是 #y升级 的。"]
+  },
+  "spirelocations:OtherColor": {
+    "TEXT" : ["多彩多样"],
+    "EXTRA_TEXT" : ["这个房间的卡牌奖励包含 "," 牌。"]
+  },
+  "spirelocations:ShopTransform": {
+    "TEXT" : ["试验品"],
+    "EXTRA_TEXT" : ["这个商人提供卡牌变化服务，而不是移除服务。",
+      "卡牌变化服务",
+      "变化你卡组中的一张牌。这项服务不会提高后续卡牌移除服务的价格。"]
+  },
+  "spirelocations:ShopRelicChest": {
+    "TEXT" : ["商人贮藏点"],
+    "EXTRA_TEXT" : ["这个宝箱里是商店遗物。嘘，别告诉商人。"]
+  },
+  "spirelocations:TimeWarp": {
+    "TEXT" : ["时间扭曲"],
+    "EXTRA_TEXT" : ["战斗开始时随机敌人获得 #y时间扭曲 。"]
+  },
+  "spirelocations:Gold": {
+    "TEXT" : ["富哥"],
+    "EXTRA_TEXT" : ["这个房间的奖励有额外 #y金币 。"]
+  },
+  "spirelocations:ElitesRemoval": {
+    "TEXT" : ["净化"],
+    "EXTRA_TEXT" : ["奖励移除一张卡牌。"]
+  },
+  "spirelocations:CampfireToke": {
+    "TEXT" : ["宁静烟雾"],
+    "EXTRA_TEXT" : ["在这个休息点，你可以移除一张牌，而不是升级一张牌。"]
+  },
+  "spirelocations:Constrict": {
+    "TEXT" : ["腐化增生"],
+    "EXTRA_TEXT" : ["战斗开始时获得 #b"," 层 #y缠绕 。"]
+  },
+  "spirelocations:Artefact": {
+    "TEXT" : ["远古遗迹"],
+    "EXTRA_TEXT" : ["战斗开始时，你和所有敌人都获得 #b2 层 #y人工制品 。"]
+  },
+  "spirelocations:RareRelicChest": {
+    "TEXT" : ["稀有文物"],
+    "EXTRA_TEXT" : ["这个宝箱里是 #b稀有 遗物。"]
+  },
+  "spirelocations:MaxHPLossChest": {
+    "TEXT" : ["汲取封印"],
+    "EXTRA_TEXT" : ["打开这个宝箱会使你的最大生命值降低 #b7 。"]
+  },
+  "spirelocations:ShopUpgrade": {
+    "TEXT" : ["升级促销"],
+    "EXTRA_TEXT" : ["在这个商店移除卡牌可以随机 #y升级 牌组中一张牌。"]
+  },
+  "spirelocations:ChooseOneEvent": {
+    "TEXT" : ["叉路口"],
+    "EXTRA_TEXT" : ["从两个事件中选择一个。"]
+  },
+  "spirelocations:HideIntents": {
+    "TEXT" : ["漆黑迷雾"],
+    "EXTRA_TEXT" : ["敌人的意图不可见。"]
+  },
+  "spirelocations:CampfireDig": {
+    "TEXT" : ["挖掘点"],
+    "EXTRA_TEXT" : ["在这个休息点，你可以挖掘遗物而不是休息。"]
+  },
+  "spirelocations:ElitesMultipleCardRewards": {
+    "TEXT" : ["仓鼠党"],
+    "EXTRA_TEXT" : ["奖励包含 #b3 张额外卡牌。"]
+  },
+  "spirelocations:RareCardReward": {
+    "TEXT" : ["收藏家"],
+    "EXTRA_TEXT" : ["奖励包含一张额外卡牌。"]
+  },
+  "spirelocations:FirstTurnDraw": {
+    "TEXT" : ["惊喜要素"],
+    "EXTRA_TEXT" : ["战斗开始时，你额外抽 #b2 张牌。"]
+  },
+  "spirelocations:ReduceHandSize": {
+    "TEXT" : ["窄道"],
+    "EXTRA_TEXT" : ["这场战斗你的手牌上限降低 #b3 。"]
+  },
+  "spirelocations:Sales": {
+    "TEXT" : ["降价促销"],
+    "EXTRA_TEXT" : ["这个商店的所有价格降低 #b30% ！"]
+  },
+  "spirelocations:CursedChestEvent": {
+    "TEXT" : ["诅咒宝藏"],
+    "EXTRA_TEXT" : ["打开这个房间的宝箱会获得一张 #r诅咒 。"]
+  },
+  "spirelocations:Strawberry": {
+    "TEXT" : ["古老花园"],
+    "EXTRA_TEXT" : ["奖励额外提供一个 #y草莓 。"]
+  },
+  "spirelocations:Slimed": {
+    "TEXT" : ["粘液沼泽"],
+    "EXTRA_TEXT" : ["战斗开始时，将 #b3 张 #y粘液 洗入抽牌堆。"]
+  },
+  "spirelocations:Snecko": {
+    "TEXT" : ["异蛇寺庙"],
+    "EXTRA_TEXT" : ["每回合多抽 #b1 张牌。战斗开始时获得 #y混乱 。"]
+  },
+  "spirelocations:CampfireCardReward": {
+    "TEXT" : ["遗落的装备"],
+    "EXTRA_TEXT" : ["进入这个房间时可以选择 #b1 张牌加入牌组。"]
+  },
+  "spirelocations:CurrentHealthCost": {
+    "TEXT" : ["鲜血封印"],
+    "EXTRA_TEXT" : ["打开这个宝箱会使你失去 #b20% 当前生命。"]
+  },
+  "spirelocations:ChestRandomUpgrade": {
+    "TEXT" : ["铁匠的秘宝"],
+    "EXTRA_TEXT" : ["打开这个宝箱会随机 #y升级 牌组中 #b2 张牌。"]
+  },
+  "spirelocations:SpecificEvent": {
+    "TEXT" : ["有用的地图"],
+    "EXTRA_TEXT" : ["你的地图显示这里是 #p"," 。", " #p随机事件 。"]
+  },
+  "spirelocations:NoPotionsChest": {
+    "TEXT" : ["饥渴封印"],
+    "EXTRA_TEXT" : ["只有在你没有药水的情况下才能打开这个宝箱。"]
+  },
+  "spirelocations:FromAnywhere": {
+    "TEXT" : ["空间拱石"],
+    "EXTRA_TEXT" : ["你可以从楼层低于此房间的任意地点进入这里。"]
+  },
+  "spirelocations:Flying": {
+    "TEXT" : ["空间撕裂"],
+    "EXTRA_TEXT" : ["从这里前往下一层时，可以无视一次路线。"]
+  }
+}

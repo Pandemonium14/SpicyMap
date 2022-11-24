@@ -1,0 +1,6 @@
+{
+  "spirelocations:ChooseOne":
+  {"NAME" : "Croisée des chemins",
+  "DESCRIPTIONS" :  ["En grimpant la tour, vous vous trouvez devant un croisement, avec un panneau indiquant les destinations des deux chemin. Pratique."],
+  "OPTIONS" : ["Suivre le panneau indiquant #p", "."]}
+}

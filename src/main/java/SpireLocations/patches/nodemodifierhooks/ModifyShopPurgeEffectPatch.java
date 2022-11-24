@@ -1,8 +1,11 @@
 package SpireLocations.patches.nodemodifierhooks;
 
 
+import SpicyShops.patches.SpicyPurgePatches;
 import SpireLocations.nodemodifiers.AbstractNodeModifier;
 import SpireLocations.patches.NodeModifierField;
+import basemod.BaseMod;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
@@ -11,6 +14,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.shop.ShopScreen;
 
+import java.beans.FeatureDescriptor;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 @SpirePatch2(clz = ShopScreen.class, method = "updatePurge")
@@ -26,7 +31,13 @@ public class ModifyShopPurgeEffectPatch {
         }
         if (interruptPurge) {
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
-            AbstractDungeon.shopScreen.purgeAvailable = false;
+
+            boolean doSecondPurge = false;
+            if (Loader.isModLoaded("spicyShops")) {
+                doSecondPurge = SpicyPurgePatches.additionalPurge;
+                SpicyPurgePatches.additionalPurge = false;
+            }
+            AbstractDungeon.shopScreen.purgeAvailable = doSecondPurge;
             return SpireReturn.Return();
         } else {
             return SpireReturn.Continue();

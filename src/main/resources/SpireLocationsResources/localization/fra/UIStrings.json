@@ -1,0 +1,157 @@
+{
+  "spirelocations:Heal": {
+    "TEXT" : ["Site de Repos Idéal"],
+    "EXTRA_TEXT" : ["Soignez #b15% de vos PV max en entrant dans cette salle."]
+  },
+  "spirelocations:Dexterity": {
+    "TEXT" : ["Position Défendable"],
+    "EXTRA_TEXT" : ["Commencez ce combat avec #b2 de Dexterité."]
+  },
+  "spirelocations:StrongEnemies": {
+    "TEXT" : ["Sombre Influence"],
+    "EXTRA_TEXT" : ["Les ennemis commencent ce combat avec #b"," de Force."]
+  },
+  "spirelocations:SecondCardReward": {
+    "TEXT" : ["Abondante"],
+    "EXTRA_TEXT" : ["Les récompenses incluent une récompense de carte supplémentaire."]
+  },
+  "spirelocations:RoughTerrain": {
+    "TEXT" : ["Terrain Difficile"],
+    "EXTRA_TEXT" : ["Dans cette salle, piochez #b1 carte supplémentaire chaque tour, mais défaussez #b2 cartes au début de votre tour."]
+  },
+  "spirelocations:Gremlin": {
+    "TEXT" : ["Cavernes des Gremlins"],
+    "EXTRA_TEXT" : ["Cette salle contient un petit gremlin supplémentaire.",
+      "Cette salle contient #b", " petits gremlins supplémentaires."]
+  },
+  "spirelocations:UpgradedRewards": {
+    "TEXT" : ["Haute Qualité"],
+    "EXTRA_TEXT" : ["Les récompenses de cartes dans cette salle sont #yAméliorées."]
+  },
+  "spirelocations:OtherColor": {
+    "TEXT" : ["Colorée"],
+    "EXTRA_TEXT" : ["Les récompenses de cartes dans cette salle contient des cartes de la couleur #p","."]
+  },
+  "spirelocations:ShopTransform": {
+    "TEXT" : ["Experimental"],
+    "EXTRA_TEXT" : ["Ce marchand offre un service de transformation de carte à la place d'un service de retrait de carte.",
+      "Service de Transformation de Carte ",
+      "Transforme une carte de votre deck. Cela n'augmente pas le coût des retraits de carte des futurs marchanDs."]
+  },
+  "spirelocations:ShopRelicChest": {
+    "TEXT" : ["Cache du Marchand"],
+    "EXTRA_TEXT" : ["Ce coffre contient un relique de marchand. Ne lui disez rien."]
+  },
+  "spirelocations:TimeWarp": {
+    "TEXT" : ["Distortion Temporelle"],
+    "EXTRA_TEXT" : ["Au début du combat, un ennemi aléatoire gagne #yDistortion #yTemporelle."]
+  },
+  "spirelocations:Gold": {
+    "TEXT" : ["Riche"],
+    "EXTRA_TEXT" : ["Cette salle contient de l'or supplémentaire."]
+  },
+  "spirelocations:ElitesRemoval": {
+    "TEXT" : ["Purifiant"],
+    "EXTRA_TEXT" : ["Les récompenses incluent un retrait de carte supplémentaire."]
+  },
+  "spirelocations:CampfireToke": {
+    "TEXT" : ["Fumées Relaxantes"],
+    "EXTRA_TEXT" : ["Dans ce site de repos, vous pouvez enlever une carte de votre deck au lieu de pouvoir améliorer une carte."]
+  },
+  "spirelocations:Constrict": {
+    "TEXT" : ["Croissance Corrompue"],
+    "EXTRA_TEXT" : ["Au début du combat, gagnez #b"," de #yConstriction, vous infligeant des dégats à la fin de votre tour."]
+  },
+  "spirelocations:Artefact": {
+    "TEXT" : ["Ruines Anciennes"],
+    "EXTRA_TEXT" : ["Au début du combat, vous et tous les ennemis gagnez #b2 #yArtefact."]
+  },
+  "spirelocations:RareRelicChest": {
+    "TEXT" : ["Précieuse Antiquité"],
+    "EXTRA_TEXT" : ["Ce coffre contient une relique #bRare."]
+  },
+  "spirelocations:MaxHPLossChest": {
+    "TEXT" : ["Sceau Drainant"],
+    "EXTRA_TEXT" : ["Ouvrir ce coffre réduit vos PV max de #b7."]
+  },
+  "spirelocations:ShopUpgrade": {
+    "TEXT" : ["Promotion Spéciale : Amélioration"],
+    "EXTRA_TEXT" : ["Acheter un retrait de carte chez ce marchand #yAméliore une carte aléatoire de votre deck."]
+  },
+  "spirelocations:ChooseOneEvent": {
+    "TEXT" : ["Croisée des Chemins"],
+    "EXTRA_TEXT" : ["Choisissez entre deux évenements."]
+  },
+  "spirelocations:HideIntents": {
+    "TEXT" : ["Brouillard Sombre"],
+    "EXTRA_TEXT" : ["Les intentions des ennemis sont cachées."]
+  },
+  "spirelocations:CampfireDig": {
+    "TEXT" : ["Site de Fouilles"],
+    "EXTRA_TEXT" : ["Dans ce site de repos, vous pouvez creuser pour obtenir une relique au lieu de pouvoir vous reposer."]
+  },
+  "spirelocations:ElitesMultipleCardRewards": {
+    "TEXT" : ["Bric à Brac"],
+    "EXTRA_TEXT" : ["Les récompenses incluent #b3 récompenses de carte supplémentaires."]
+  },
+  "spirelocations:RareCardReward": {
+    "TEXT" : ["Collector"],
+    "EXTRA_TEXT" : ["Les récompenses incluent une récompense de cartes rares supplémentaire."]
+  },
+  "spirelocations:FirstTurnDraw": {
+    "TEXT" : ["Effet de Surprise"],
+    "EXTRA_TEXT" : ["Au début du combat, piochez #b2 cartes supplémentaires."]
+  },
+  "spirelocations:ReduceHandSize": {
+    "TEXT" : ["Corridor Étroit"],
+    "EXTRA_TEXT" : ["Lors de ce combat, la taille maximale de votre main est réduite de #b3."]
+  },
+  "spirelocations:Sales": {
+    "TEXT" : ["Promotion Spéciale : SOLDES"],
+    "EXTRA_TEXT" : ["Chez ce marchand, tout est à  #b-30% !"]
+  },
+  "spirelocations:CursedChestEvent": {
+    "TEXT" : ["Trésor Maudit"],
+    "EXTRA_TEXT" : ["Cette salle contient un coffre qui vous #rmaudit si vous l'ouvrez."]
+  },
+  "spirelocations:Strawberry": {
+    "TEXT" : ["Ancient Jardin"],
+    "EXTRA_TEXT" : ["Les récompenses incluent une #yFraise supplémentaire, augmentant vos PV max de #b7."]
+  },
+  "spirelocations:Slimed": {
+    "TEXT" : ["Marais Collant"],
+    "EXTRA_TEXT" : ["Au début du combat, ajoutez #b3 #yEnglué à votre pioche."]
+  },
+  "spirelocations:Snecko": {
+    "TEXT" : ["Temple Geckobra"],
+    "EXTRA_TEXT" : ["Vous piochez #b1 carte supplémentaire chaque tour. Vous commencez le combat #yConfus."]
+  },
+  "spirelocations:CampfireCardReward": {
+    "TEXT" : ["Equipment Oublié"],
+    "EXTRA_TEXT" : ["En entrant, vous pouvez ajouter #b1 carte à votre deck."]
+  },
+  "spirelocations:CurrentHealthCost": {
+    "TEXT" : ["Sceau Sanglant"],
+    "EXTRA_TEXT" : ["Ouvrir ce coffre coûte #b20% de vos PV actuels."]
+  },
+  "spirelocations:ChestRandomUpgrade": {
+    "TEXT" : ["Cache du Forgeron"],
+    "EXTRA_TEXT" : ["Quand vos ouvrez ce coffre, #yAméliorez #b2 carte aléatoires de votre deck."]
+  },
+  "spirelocations:SpecificEvent": {
+    "TEXT" : ["Carte Utile"],
+    "EXTRA_TEXT" : ["Votre carte indique que cette salle contient #p",".", "un #pévenement #paléatoire"]
+  },
+  "spirelocations:NoPotionsChest": {
+    "TEXT" : ["Seal of Thirst"],
+    "EXTRA_TEXT" : ["You can only open this chest if don't carry any potion."]
+  },
+  "spirelocations:FromAnywhere": {
+    "TEXT" : ["Clé de Voute Spatiale"],
+    "EXTRA_TEXT" : ["Vous pouvez accéder à cette salle depuis n'importe où dans l'étage d'en dessous."]
+  },
+  "spirelocations:Flying": {
+    "TEXT" : ["Fracture Spatiale"],
+    "EXTRA_TEXT" : ["Vous pouvez accéder à n'importe quelle salle de l'étage du dessus depuis cette salle."]
+  }
+}

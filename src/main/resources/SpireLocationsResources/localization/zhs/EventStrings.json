@@ -1,0 +1,6 @@
+{
+  "spirelocations:ChooseOne":
+  {"NAME" : "岔路口",
+  "DESCRIPTIONS" :  ["攀爬高塔的途中，你来到了一个岔路口，还有告示牌指示方向。真方便。"],
+  "OPTIONS" : ["前往写着 #p", " 的告示牌。"]}
+}

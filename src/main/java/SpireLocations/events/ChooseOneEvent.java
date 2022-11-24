@@ -82,6 +82,7 @@ public class ChooseOneEvent extends AbstractImageEvent {
             node.addEdge(edge);// 100
         }
 
+        AbstractDungeon.overlayMenu.hideCombatPanels();
         AbstractDungeon.previousScreen = null;// 105
         AbstractDungeon.dynamicBanner.hide();// 106
         AbstractDungeon.dungeonMapScreen.closeInstantly();// 107

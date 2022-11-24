@@ -38,6 +38,8 @@ public class ChooseOneEventModifier extends AbstractNodeModifier {
     public void modifyEvent(AbstractEvent intendedEvent) {
         Random eventRngDuplicate = new Random(Settings.seed, AbstractDungeon.eventRng.counter);
         AbstractEvent otherChoice = AbstractDungeon.generateEvent(eventRngDuplicate);
-        AbstractDungeon.nextRoom.room.event = new ChooseOneEvent(intendedEvent, otherChoice);
+        if (otherChoice != null) {
+            AbstractDungeon.nextRoom.room.event = new ChooseOneEvent(intendedEvent, otherChoice);
+        }
     }
 }

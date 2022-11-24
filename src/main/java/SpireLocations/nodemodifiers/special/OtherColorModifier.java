@@ -108,7 +108,7 @@ public class OtherColorModifier extends AbstractNodeModifier {
     public String[] getTooltipStrings() {
         String[] tipStrings = new String[2];
         tipStrings[0] = strings.TEXT[0];
-        tipStrings[1] = strings.EXTRA_TEXT[0] + modColor.name().toLowerCase().replace("_"," ") + strings.EXTRA_TEXT[1];
+        tipStrings[1] = strings.EXTRA_TEXT[0] + modColor.name().toLowerCase().replace("_"," #p") + strings.EXTRA_TEXT[1];
         return tipStrings;
     }
 }

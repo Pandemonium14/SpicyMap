@@ -44,6 +44,7 @@ public class ShopTransformModifier extends AbstractNodeModifier {
             AbstractCard transCard = AbstractDungeon.getTransformedCard();// 81
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(transCard, c.current_x, c.current_y));
         }
+        AbstractDungeon.player.loseGold(ShopScreen.actualPurgeCost);
         return true;
     }
 

@@ -1,0 +1,7 @@
+{
+  "spirelocations:Removal" : {
+    "NAME" : "Goutte d'Eau Purifiante",
+    "DESCRIPTIONS" : ["Lorsque vous la ramassez, retirez #b1 carte de votre deck.","Choisissez une carte à retirer de votre deck."],
+    "FLAVOR" : "Une goutte provenant d'une fontaine mystique, censée purifier de toute malédiction ceux qui boivent de son eau."
+  }
+}
